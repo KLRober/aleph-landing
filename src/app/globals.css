@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --accent-amber: rgba(251, 191, 36, 0.8);
+  --accent-teal: rgba(45, 212, 191, 0.8);
+  --accent-violet: rgba(139, 92, 246, 0.8);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background-color: #0a0a0a;
+  color: var(--foreground);
+  font-family: 'Space Grotesk', var(--font-sans), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+/* ── Mesh Background ─────────────────────────────── */
+.mesh-bg {
+  background-color: #0a0a0a;
+  background-image:
+    radial-gradient(at 20% 20%, rgba(251, 191, 36, 0.03) 0px, transparent 40%),
+    radial-gradient(at 80% 80%, rgba(45, 212, 191, 0.03) 0px, transparent 40%),
+    radial-gradient(at 50% 50%, rgba(139, 92, 246, 0.03) 0px, transparent 40%);
+}
+
+/* ── Glass Nav ────────────────────────────────────── */
+.glass-nav {
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ── Glass Card ──────────────────────────────────── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ── Node glow colors ────────────────────────────── */
+.node-amber {
+  box-shadow: 0 0 15px 2px rgba(251, 191, 36, 0.6);
+  background-color: #fbbf24;
+}
+
+.node-teal {
+  box-shadow: 0 0 15px 2px rgba(45, 212, 191, 0.6);
+  background-color: #2dd4bf;
+}
+
+.node-violet {
+  box-shadow: 0 0 15px 2px rgba(139, 92, 246, 0.6);
+  background-color: #8b5cf6;
+}
+
+/* ── Shimmer sweep ────────────────────────────────── */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) skewX(-15deg);
+  }
+
+  100% {
+    transform: translateX(200%) skewX(-15deg);
+  }
+}
+
+.shimmer-btn:hover .shimmer-sweep {
+  animation: shimmer 1.2s ease-in-out;
+}
+
+/* ── Marquee animation ───────────────────────────── */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ── Glow border rotation ─────────────────────────── */
+@keyframes glow-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.glow-border::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: conic-gradient(from 0deg,
+      transparent 0%,
+      rgba(251, 191, 36, 0.6) 10%,
+      rgba(139, 92, 246, 0.6) 20%,
+      transparent 40%,
+      transparent 60%,
+      rgba(45, 212, 191, 0.6) 70%,
+      rgba(139, 92, 246, 0.6) 80%,
+      transparent 100%);
+  animation: glow-rotate 4s linear infinite;
+  z-index: -1;
+}
+
+.glow-border::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  background: #0a0a0a;
+  z-index: -1;
+}
+
+/* ── Custom checkbox ──────────────────────────────── */
+.custom-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.custom-checkbox:checked {
+  background: #8b5cf6;
+  border-color: #8b5cf6;
+}
+
+.custom-checkbox:checked::after {
+  content: "✓";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+}

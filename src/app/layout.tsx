@@ -19,9 +19,9 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "ALEPH — Tu centro de mando digital, local y privado",
+  title: "ALEPH — Tu centro de mando digital & neural",
   description:
-    "Organiza archivos, gestiona PDFs y analiza logs con la potencia de Python. Sin nubes, sin rastreo, 100% en tu hardware.",
+    "Orquestación de archivos de alto nivel impulsada por Python. Inferencia local con privacidad absoluta y latencia cero.",
 };
 
 export default function RootLayout({
@@ -30,8 +30,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className="dark">
+    <html lang="es" className="dark" style={{ colorScheme: "dark" }}>
       <head>
+        <meta name="theme-color" content="#000000" />
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
           rel="stylesheet"

@@ -2,11 +2,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0a;
+  --background: #000000;
   --foreground: #ededed;
-  --accent-amber: rgba(251, 191, 36, 0.8);
+  --accent-emerald: #00ff88;
+  --accent-green: #22c55e;
   --accent-teal: rgba(45, 212, 191, 0.8);
-  --accent-violet: rgba(139, 92, 246, 0.8);
+  --accent-violet: #a855f7;
+  --accent-pink: #ec4899;
+  --zinc-800: #27272a;
+  --zinc-900: #18181b;
 }
 
 @theme inline {
@@ -17,88 +21,94 @@
 }
 
 body {
-  background-color: #0a0a0a;
+  background-color: #000000;
   color: var(--foreground);
-  font-family: 'Space Grotesk', var(--font-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), 'Space Grotesk', Arial, Helvetica, sans-serif;
   overflow-x: hidden;
+}
+
+/* ── Headings use Space Grotesk ─────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', var(--font-sans), sans-serif;
 }
 
 /* ── Mesh Background ─────────────────────────────── */
 .mesh-bg {
-  background-color: #0a0a0a;
+  background-color: #000000;
   background-image:
-    radial-gradient(at 20% 20%, rgba(251, 191, 36, 0.03) 0px, transparent 40%),
-    radial-gradient(at 80% 80%, rgba(45, 212, 191, 0.03) 0px, transparent 40%),
-    radial-gradient(at 50% 50%, rgba(139, 92, 246, 0.03) 0px, transparent 40%);
+    radial-gradient(at 20% 20%, rgba(0, 255, 136, 0.015) 0px, transparent 40%),
+    radial-gradient(at 80% 80%, rgba(168, 85, 247, 0.01) 0px, transparent 40%),
+    radial-gradient(at 50% 50%, rgba(34, 197, 94, 0.01) 0px, transparent 40%);
 }
 
 /* ── Glass Nav ────────────────────────────────────── */
 .glass-nav {
-  background: rgba(10, 10, 10, 0.6);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-/* ── Glass Card ──────────────────────────────────── */
-.glass-card {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+/* ── Bento Card ──────────────────────────────────── */
+.bento-card {
+  background: #0a0a0a;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* ── Node glow colors ────────────────────────────── */
-.node-amber {
-  box-shadow: 0 0 15px 2px rgba(251, 191, 36, 0.6);
-  background-color: #fbbf24;
+.bento-card:hover {
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.02);
 }
 
-.node-teal {
-  box-shadow: 0 0 15px 2px rgba(45, 212, 191, 0.6);
-  background-color: #2dd4bf;
+/* ── Pipeline Node ───────────────────────────────── */
+.pipeline-node {
+  background: #111111;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.75rem;
+  position: relative;
 }
 
-.node-violet {
-  box-shadow: 0 0 15px 2px rgba(139, 92, 246, 0.6);
-  background-color: #8b5cf6;
-}
-
-/* ── Shimmer sweep ────────────────────────────────── */
-@keyframes shimmer {
-  0% {
-    transform: translateX(-100%) skewX(-15deg);
+/* ── Glow CTA Button ─────────────────────────────── */
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 8px rgba(0, 255, 136, 0.3),
+      0 0 20px rgba(0, 255, 136, 0.15),
+      0 0 40px rgba(168, 85, 247, 0.08);
   }
-
-  100% {
-    transform: translateX(200%) skewX(-15deg);
-  }
-}
-
-.shimmer-btn:hover .shimmer-sweep {
-  animation: shimmer 1.2s ease-in-out;
-}
-
-/* ── Marquee animation ───────────────────────────── */
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-50%);
+  50% {
+    box-shadow:
+      0 0 12px rgba(0, 255, 136, 0.5),
+      0 0 30px rgba(0, 255, 136, 0.25),
+      0 0 60px rgba(168, 85, 247, 0.15);
   }
 }
 
-/* ── Glow border rotation ─────────────────────────── */
+.glow-cta {
+  animation: glow-pulse 2.5s ease-in-out infinite;
+  border: 1px solid rgba(0, 255, 136, 0.3);
+}
+
+.glow-cta:hover {
+  animation: none;
+  box-shadow:
+    0 0 15px rgba(0, 255, 136, 0.6),
+    0 0 40px rgba(0, 255, 136, 0.3),
+    0 0 80px rgba(168, 85, 247, 0.2);
+  border-color: rgba(0, 255, 136, 0.5);
+}
+
+/* ── Animated glow border for badge ──────────────── */
 @keyframes glow-rotate {
-  0% {
-    transform: rotate(0deg);
-  }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 
-  100% {
-    transform: rotate(360deg);
-  }
+.glow-border {
+  position: relative;
+  overflow: hidden;
 }
 
 .glow-border::before {
@@ -108,12 +118,12 @@ body {
   border-radius: inherit;
   background: conic-gradient(from 0deg,
       transparent 0%,
-      rgba(251, 191, 36, 0.6) 10%,
-      rgba(139, 92, 246, 0.6) 20%,
+      rgba(0, 255, 136, 0.5) 10%,
+      rgba(168, 85, 247, 0.4) 20%,
       transparent 40%,
       transparent 60%,
-      rgba(45, 212, 191, 0.6) 70%,
-      rgba(139, 92, 246, 0.6) 80%,
+      rgba(34, 197, 94, 0.5) 70%,
+      rgba(168, 85, 247, 0.4) 80%,
       transparent 100%);
   animation: glow-rotate 4s linear infinite;
   z-index: -1;
@@ -124,37 +134,128 @@ body {
   position: absolute;
   inset: 1px;
   border-radius: inherit;
-  background: #0a0a0a;
+  background: #000000;
   z-index: -1;
 }
 
-/* ── Custom checkbox ──────────────────────────────── */
-.custom-checkbox {
-  appearance: none;
-  -webkit-appearance: none;
-  width: 16px;
-  height: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
-  background: transparent;
-  cursor: pointer;
-  position: relative;
-  flex-shrink: 0;
-  transition: all 0.2s ease;
+/* ── Stats bar progress ──────────────────────────── */
+@keyframes fill-bar {
+  from { width: 0; }
 }
 
-.custom-checkbox:checked {
-  background: #8b5cf6;
-  border-color: #8b5cf6;
+/* ── Glow animations ─────────────────────────────── */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
 }
 
-.custom-checkbox:checked::after {
-  content: "✓";
+@keyframes float-particle {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.2;
+  }
+  25% {
+    transform: translateY(-8px) translateX(4px);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-4px) translateX(-6px);
+    opacity: 0.3;
+  }
+  75% {
+    transform: translateY(-12px) translateX(2px);
+    opacity: 0.6;
+  }
+}
+
+/* ── Scan line effect ────────────────────────────── */
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.scan-line::after {
+  content: "";
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  font-size: 11px;
-  font-weight: bold;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent, rgba(0, 255, 136, 0.04), transparent);
+  animation: scan-line 3s linear infinite;
+  pointer-events: none;
+}
+
+/* ── Marquee animation ───────────────────────────── */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── Terminal Log ─────────────────────────────────── */
+.terminal-log {
+  background: #050505;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0.75rem;
+  font-family: var(--font-mono), 'JetBrains Mono', monospace;
+}
+
+.log-success { color: #22c55e; }
+.log-info { color: #a1a1aa; }
+.log-process { color: #a1a1aa; }
+.log-security { color: #22c55e; }
+.log-warn { color: #ec4899; }
+.log-error { color: #ec4899; }
+.log-logic { color: #a855f7; }
+
+/* ── Custom scrollbar ─────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #000000; }
+::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.2); }
+
+/* ── Stat glow effect ─────────────────────────────── */
+.stat-glow {
+  text-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+}
+
+/* ── Gradient text utility ────────────────────────── */
+.gradient-text-emerald {
+  background: linear-gradient(135deg, #22c55e, #00ff88, #34d399);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Integrity circle glow ────────────────────────── */
+.integrity-ring-green {
+  filter: drop-shadow(0 0 8px rgba(34, 197, 94, 0.5));
+}
+
+.integrity-ring-pink {
+  filter: drop-shadow(0 0 8px rgba(236, 72, 153, 0.5));
+}
+
+/* ── Node accent colors ──────────────────────────── */
+.node-green {
+  box-shadow: 0 0 12px rgba(34, 197, 94, 0.5);
+  background-color: #22c55e;
+}
+
+.node-pink {
+  box-shadow: 0 0 12px rgba(236, 72, 153, 0.5);
+  background-color: #ec4899;
+}
+
+.node-violet {
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.5);
+  background-color: #a855f7;
+}
+
+/* ── Neural Engine visual ─────────────────────────── */
+.neural-core-bg {
+  background: radial-gradient(ellipse at center, rgba(0, 255, 136, 0.06) 0%, transparent 70%);
 }

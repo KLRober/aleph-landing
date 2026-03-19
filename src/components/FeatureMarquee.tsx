@@ -1,23 +1,44 @@
 "use client";
 
+import { motion } from "framer-motion";
+
+const features = [
+    { icon: "memory", label: "LOCAL PROCESSING" },
+    { icon: "code", label: "PYTHON POWERED" },
+    { icon: "bolt", label: "ZERO LATENCY" },
+    { icon: "lock", label: "END-TO-END ENCRYPTION" },
+    { icon: "category", label: "SMART CLASSIFICATION" },
+    { icon: "hub", label: "MODULAR ARCHITECTURE" },
+];
+
 export default function FeatureMarquee() {
+    const doubledFeatures = [...features, ...features];
+
     return (
-        <div className="fixed bottom-0 left-0 right-0 glass-card border-t border-white/10 py-3 overflow-hidden bg-[#050505]/90 z-40 backdrop-blur-xl">
+        <motion.section
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="w-full border-t border-b border-white/[0.04] overflow-hidden py-4 mt-4"
+        >
             <div
-                className="flex whitespace-nowrap font-mono text-sm font-bold text-white tracking-widest uppercase"
-                style={{ animation: "marquee 20s linear infinite" }}
+                className="flex whitespace-nowrap gap-6"
+                style={{ animation: "marquee 30s linear infinite" }}
             >
-                <span className="mx-6 text-slate-500">•</span> Intelligent File Organizer
-                <span className="mx-6 text-slate-500">•</span> Advanced PDF Toolkit
-                <span className="mx-6 text-slate-500">•</span> Security Log Parser
-                <span className="mx-6 text-slate-500">•</span> Local Backups
-                <span className="mx-6 text-slate-500">•</span> Image Optimizer
-                <span className="mx-6 text-slate-500">•</span> Intelligent File Organizer
-                <span className="mx-6 text-slate-500">•</span> Advanced PDF Toolkit
-                <span className="mx-6 text-slate-500">•</span> Security Log Parser
-                <span className="mx-6 text-slate-500">•</span> Local Backups
-                <span className="mx-6 text-slate-500">•</span> Image Optimizer
+                {doubledFeatures.map((feature, i) => (
+                    <div
+                        key={`${feature.label}-${i}`}
+                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/[0.06] bg-white/[0.02] flex-shrink-0"
+                    >
+                        <span className="material-symbols-outlined text-[16px] text-zinc-500">
+                            {feature.icon}
+                        </span>
+                        <span className="text-[11px] font-mono tracking-widest text-zinc-400 uppercase">
+                            {feature.label}
+                        </span>
+                    </div>
+                ))}
             </div>
-        </div>
+        </motion.section>
     );
 }

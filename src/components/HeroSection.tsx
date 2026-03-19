@@ -1,116 +1,73 @@
 "use client";
 
-import AlephSymbol from "./AlephSymbol";
-import { useState } from "react";
 import { motion } from "framer-motion";
-import ShimmerButton from "./ShimmerButton";
 
 export default function HeroSection() {
-    const [accepted, setAccepted] = useState(false);
-
     return (
-        <section className="pt-32 pb-20 px-4 max-w-7xl mx-auto flex flex-col">
-            <div className="flex flex-col lg:flex-row items-center justify-between mt-10 lg:mt-20 relative">
-                {/* Left Column (60%) - Content */}
-                <div className="flex flex-col gap-8 w-full lg:w-[60%] text-left z-20 pr-0 lg:pr-12">
-                    {/* Live badge */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
-                        className="inline-flex items-center gap-2 glass-card rounded-full px-4 py-2 w-fit border border-white/10"
-                    >
-                        <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
-                        <span className="text-xs font-mono text-slate-300 tracking-wider uppercase">
-                            Aleph v1.0 is live
-                        </span>
-                    </motion.div>
+        <section className="pt-36 pb-10 px-4 max-w-5xl mx-auto flex flex-col items-center text-center">
+            {/* Badge */}
+            <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="glow-border rounded-full px-4 py-1.5 mb-8"
+            >
+                <span className="relative z-10 flex items-center gap-2 text-[11px] font-mono tracking-[0.15em] text-green-400 uppercase">
+                    <span className="inline-block h-1.5 w-1.5 rounded-full bg-green-500 shadow-[0_0_6px_rgba(34,197,94,0.8)]" />
+                    Organize &bull; Secure &bull; Harmonize
+                </span>
+            </motion.div>
 
-                    {/* H1 */}
-                    <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
-                        className="text-5xl lg:text-7xl font-black leading-[1.1] tracking-tight text-white"
-                    >
-                        Tu centro de mando digital, local y privado.
-                    </motion.h1>
+            {/* Headline */}
+            <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
+                className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold leading-[1.12] tracking-tight text-white max-w-3xl"
+            >
+                Recuperá 5 horas de tu semana.{" "}
+                Dejá que{" "}
+                <span className="text-green-400">ℵ</span>{" "}
+                ALEPH maneje tus archivos.
+            </motion.h1>
 
-                    {/* Subtitle */}
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-                        className="text-lg text-slate-400 max-w-xl leading-relaxed"
-                    >
-                        Organiza archivos, gestiona PDFs y analiza logs con la potencia
-                        de Python. Sin nubes, sin rastreo, 100% en tu hardware.
-                    </motion.p>
+            {/* Subtitle */}
+            <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+                className="mt-6 text-sm md:text-base text-zinc-400 max-w-2xl leading-relaxed"
+            >
+                The first monolithic file infrastructure for high-performance engineers.
+                Local-first neural classification, zero-latency metadata cleaning, and
+                autonomous logic flows.
+            </motion.p>
 
-                    {/* CTA Buttons */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.45, ease: "easeOut" }}
-                        className="flex flex-wrap gap-4 mt-4"
-                    >
-                        <ShimmerButton disabled={!accepted} />
-                        <motion.button
-                            whileHover={{ scale: 1.03 }}
-                            whileTap={{ scale: 0.97 }}
-                            className="glass-card hover:bg-white/10 text-white text-base font-bold h-12 px-8 rounded-full transition-colors flex items-center gap-2 border border-white/10"
-                        >
-                            Documentation
-                        </motion.button>
-                    </motion.div>
+            {/* Dual CTAs */}
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.35, ease: "easeOut" }}
+                className="mt-10 flex flex-col sm:flex-row items-center gap-4"
+            >
+                {/* Primary: Glow CTA */}
+                <motion.button
+                    whileHover={{ scale: 1.04 }}
+                    whileTap={{ scale: 0.97 }}
+                    className="glow-cta bg-white text-black text-sm font-bold h-12 px-8 rounded-full transition-all flex items-center gap-2"
+                >
+                    TRY IT FOR FREE — DOWNLOAD V1.0
+                </motion.button>
 
-                    {/* Legal checkbox */}
-                    <motion.label
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
-                        className="mt-2 flex cursor-pointer items-start gap-3 group"
-                    >
-                        <div className="relative mt-0.5 flex items-center justify-center">
-                            <input
-                                type="checkbox"
-                                checked={accepted}
-                                onChange={(e) => setAccepted(e.target.checked)}
-                                className="peer sr-only"
-                            />
-                            <div className="h-4 w-4 rounded-sm border border-zinc-700 bg-zinc-900/50 transition-colors peer-checked:border-violet-500 peer-checked:bg-violet-500 group-hover:border-violet-400/50" />
-                            <svg
-                                className="absolute h-3 w-3 text-white opacity-0 transition-opacity peer-checked:opacity-100"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                                strokeWidth={3}
-                            >
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                            </svg>
-                        </div>
-                        <span className="font-mono text-[11px] uppercase tracking-widest leading-relaxed text-zinc-500">
-                            Acepto los{" "}
-                            <a
-                                href="#"
-                                className="text-slate-300 underline underline-offset-4 transition-colors hover:text-white"
-                            >
-                                Términos de Servicio
-                            </a>{" "}
-                            y la{" "}
-                            <a
-                                href="#"
-                                className="text-slate-300 underline underline-offset-4 transition-colors hover:text-white"
-                            >
-                                Política de Privacidad
-                            </a>
-                        </span>
-                    </motion.label>
-                </div>
-
-                {/* Right Column (40%) - Aleph Symbol */}
-                <AlephSymbol />
-            </div>
+                {/* Secondary: Outline */}
+                <motion.button
+                    whileHover={{ scale: 1.03, borderColor: "rgba(255,255,255,0.3)" }}
+                    whileTap={{ scale: 0.97 }}
+                    className="border border-white/10 text-zinc-300 text-sm font-medium h-12 px-8 rounded-full transition-all hover:text-white"
+                >
+                    READ DOCUMENTATION
+                </motion.button>
+            </motion.div>
         </section>
     );
 }

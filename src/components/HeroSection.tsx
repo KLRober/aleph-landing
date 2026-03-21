@@ -4,70 +4,104 @@ import { motion } from "framer-motion";
 
 export default function HeroSection() {
     return (
-        <section className="pt-36 pb-10 px-4 max-w-5xl mx-auto flex flex-col items-center text-center">
-            {/* Badge */}
-            <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                className="glow-border rounded-full px-4 py-1.5 mb-8"
-            >
-                <span className="relative z-10 flex items-center gap-2 text-[11px] font-mono tracking-[0.15em] text-green-400 uppercase">
-                    <span className="inline-block h-1.5 w-1.5 rounded-full bg-green-500 shadow-[0_0_6px_rgba(34,197,94,0.8)]" />
-                    Organize &bull; Secure &bull; Harmonize
-                </span>
-            </motion.div>
+        <>
+            <section className="relative min-h-[90vh] flex items-center px-8 md:px-16 max-w-screen-2xl mx-auto pt-12">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full">
+                    {/* Left Content */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -30 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.7, ease: "easeOut" }}
+                        className="z-10"
+                    >
+                        {/* Status Badge */}
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#2a2a2a] border border-[#444748]/20 mb-8">
+                            <span className="w-2 h-2 rounded-full bg-[#79FE77] animate-pulse" />
+                            <span className="text-[10px] font-mono tracking-widest uppercase text-[#BDCBB6]">
+                                System Status: V1.0.4 Live
+                            </span>
+                        </div>
 
-            {/* Headline */}
-            <motion.h1
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-                className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold leading-[1.12] tracking-tight text-white max-w-3xl"
-            >
-                Recuperá 5 horas de tu semana.{" "}
-                Dejá que{" "}
-                <span className="text-green-400">ℵ</span>{" "}
-                ALEPH maneje tus archivos.
-            </motion.h1>
+                        {/* Headline */}
+                        <h1 className="text-6xl md:text-8xl font-bold tracking-tighter text-[#e9e9e9] leading-[0.9] mb-8 font-[family-name:var(--font-space-grotesk)]">
+                            WELCOME TO{" "}
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e9e9e9] to-[#79FE77]">
+                                ALEPH
+                            </span>
+                        </h1>
 
-            {/* Subtitle */}
-            <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                className="mt-6 text-sm md:text-base text-zinc-400 max-w-2xl leading-relaxed"
-            >
-                The first monolithic file infrastructure for high-performance engineers.
-                Local-first neural classification, zero-latency metadata cleaning, and
-                autonomous logic flows.
-            </motion.p>
+                        {/* Subtitle */}
+                        <p className="text-xl md:text-2xl text-[#BDCBB6] max-w-xl mb-12 leading-relaxed font-light">
+                            The high-performance automation engine for local-first file control. Precise, silent, and authoritative.
+                        </p>
 
-            {/* Dual CTAs */}
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.35, ease: "easeOut" }}
-                className="mt-10 flex flex-col sm:flex-row items-center gap-4"
-            >
-                {/* Primary: Glow CTA */}
-                <motion.button
-                    whileHover={{ scale: 1.04 }}
-                    whileTap={{ scale: 0.97 }}
-                    className="glow-cta bg-white text-black text-sm font-bold h-12 px-8 rounded-full transition-all flex items-center gap-2"
-                >
-                    TRY IT FOR FREE — DOWNLOAD V1.0
-                </motion.button>
+                        {/* CTAs */}
+                        <div className="flex flex-wrap gap-4">
+                            <motion.button
+                                whileHover={{ scale: 1.03 }}
+                                whileTap={{ scale: 0.97 }}
+                                className="glow-button bg-[#79FE77] text-[#003908] px-8 py-4 font-bold tracking-tight rounded-lg transition-all flex items-center gap-3"
+                            >
+                                INITIALIZE NODE
+                                <span className="material-symbols-outlined">terminal</span>
+                            </motion.button>
+                            <motion.button
+                                whileHover={{ scale: 1.03, backgroundColor: "rgba(58, 57, 57, 1)" }}
+                                whileTap={{ scale: 0.97 }}
+                                className="bg-[#353434] border border-[#444748]/30 text-[#e9e9e9] px-8 py-4 font-bold tracking-tight rounded-lg transition-all"
+                            >
+                                READ MANIFESTO
+                            </motion.button>
+                        </div>
+                    </motion.div>
 
-                {/* Secondary: Outline */}
-                <motion.button
-                    whileHover={{ scale: 1.03, borderColor: "rgba(255,255,255,0.3)" }}
-                    whileTap={{ scale: 0.97 }}
-                    className="border border-white/10 text-zinc-300 text-sm font-medium h-12 px-8 rounded-full transition-all hover:text-white"
-                >
-                    READ DOCUMENTATION
-                </motion.button>
-            </motion.div>
-        </section>
+                    {/* Right Graphic — ℵ Symbol with Spinning Rings */}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+                        className="relative aspect-square flex items-center justify-center"
+                    >
+                        {/* Ambient glow */}
+                        <div className="absolute inset-0 bg-gradient-to-tr from-[#79FE77]/10 via-cyan-500/5 to-transparent rounded-full blur-[120px]" />
+
+                        <div className="relative group">
+                            {/* Giant ℵ Symbol */}
+                            <div className="text-[22rem] font-bold text-zinc-900/40 select-none transition-transform duration-1000 group-hover:rotate-6 font-[family-name:var(--font-space-grotesk)]">
+                                ℵ
+                            </div>
+
+                            {/* Concentric Rings */}
+                            <div className="absolute inset-0 flex items-center justify-center">
+                                <div className="w-64 h-64 border border-[#79FE77]/30 rounded-full animate-spin-slow" />
+                                <div className="absolute w-80 h-80 border-[0.5px] border-cyan-400/20 rounded-full animate-spin-slow-reverse" />
+                                <svg className="absolute w-96 h-96 opacity-60" viewBox="0 0 100 100">
+                                    <circle
+                                        cx="50"
+                                        cy="50"
+                                        r="48"
+                                        fill="none"
+                                        stroke="url(#neon-grad)"
+                                        strokeDasharray="1 5"
+                                        strokeWidth="0.1"
+                                    />
+                                    <defs>
+                                        <linearGradient id="neon-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" style={{ stopColor: "#79FE77", stopOpacity: 1 }} />
+                                            <stop offset="100%" style={{ stopColor: "#00e5ff", stopOpacity: 1 }} />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+                        </div>
+                    </motion.div>
+                </div>
+            </section>
+
+            {/* Neural Flow Connector */}
+            <div className="h-32 w-full flex flex-col items-center justify-center opacity-40">
+                <div className="w-px h-full bg-gradient-to-b from-[#79FE77] to-transparent" />
+            </div>
+        </>
     );
 }

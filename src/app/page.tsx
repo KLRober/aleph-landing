@@ -1,24 +1,21 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import StatsMarquee from "@/components/StatsMarquee";
-import NeuralEngineSection from "@/components/NeuralEngineSection";
+import NeuralFlowSection from "@/components/NeuralFlowSection";
 import BentoGrid from "@/components/AutomationEngineSection";
-import PipelineBuilderSection from "@/components/PipelineBuilderSection";
 import SystemIntegritySection from "@/components/SystemIntegritySection";
-import PrivacyBanner from "@/components/PrivacyBanner";
 import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col mesh-bg text-zinc-100">
+    <main className="flex min-h-screen flex-col bg-[#121414] text-[#e5e2e1] relative">
+      {/* Giant ℵ Watermark */}
+      <div className="aleph-watermark select-none" aria-hidden="true">ℵ</div>
+
       <Header />
       <HeroSection />
-      <StatsMarquee />
-      <NeuralEngineSection />
+      <NeuralFlowSection />
       <BentoGrid />
-      <PipelineBuilderSection />
       <SystemIntegritySection />
-      <PrivacyBanner />
       <Footer />
     </main>
   );

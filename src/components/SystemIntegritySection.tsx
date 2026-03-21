@@ -1,7 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -16,81 +15,50 @@ const cardVariants = {
     visible: {
         opacity: 1,
         y: 0,
-        transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
+        transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] as const },
     },
 };
 
-function AnimatedPercent({ target, suffix = "%" }: { target: number; suffix?: string }) {
-    const ref = useRef<HTMLSpanElement>(null);
-    const isInView = useInView(ref, { once: true });
-    const [count, setCount] = useState(0);
+/* -- System Status Panel (left) -- */
+function SystemStatusPanel() {
+    const stats = [
+        { label: "NODE_ALPHA_01", value: "OPERATIONAL", valueColor: "text-[#79FE77]" },
+        { label: "CPU_LOAD", value: "12.4%", valueColor: "text-[#e9e9e9]" },
+        { label: "THROUGHPUT", value: "1.2 GB/s", valueColor: "text-[#e9e9e9]" },
+    ];
 
-    useEffect(() => {
-        if (!isInView) return;
-        const duration = 1200;
-        const steps = 40;
-        const increment = target / steps;
-        let current = 0;
-        const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-                setCount(target);
-                clearInterval(timer);
-            } else {
-                setCount(Number(current.toFixed(1)));
-            }
-        }, duration / steps);
-        return () => clearInterval(timer);
-    }, [isInView, target]);
-
-    return (
-        <span ref={ref} className="text-3xl md:text-4xl font-bold text-white stat-glow tabular-nums">
-            {count}{suffix}
-        </span>
-    );
-}
-
-/* -- System Integrity (left) -- */
-function IntegrityCard() {
     return (
         <motion.div
             variants={cardVariants}
-            className="bento-card p-6 lg:p-8 flex flex-col gap-6 flex-1"
+            className="glass-panel rounded-xl p-8 border border-[#444748]/10 lg:col-span-1"
         >
-            <h3 className="text-[11px] font-mono text-zinc-400 tracking-[0.2em] uppercase">
-                System Integrity
-            </h3>
+            <h4 className="font-bold text-[#e9e9e9] mb-6 flex items-center gap-3 font-[family-name:var(--font-space-grotesk)]">
+                <span className="w-2 h-2 rounded-full bg-[#79FE77]" />
+                SYSTEM STATUS
+            </h4>
 
-            {/* Disk Efficiency */}
-            <div className="flex items-center gap-4">
-                <div className="flex flex-col">
-                    <span className="text-[10px] font-mono text-zinc-600 tracking-wider uppercase">
-                        Disk Efficiency
-                    </span>
-                    <AnimatedPercent target={99.8} />
-                </div>
-                <div className="ml-auto">
-                    <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center integrity-ring-green">
-                        <span className="material-symbols-outlined text-[20px] text-green-400">
-                            check_circle
-                        </span>
+            <div className="space-y-6">
+                {stats.map((stat) => (
+                    <div key={stat.label} className="flex justify-between items-center pb-4 border-b border-[#444748]/10">
+                        <span className="text-xs font-mono text-[#BDCBB6]">{stat.label}</span>
+                        <span className={`text-xs font-mono ${stat.valueColor}`}>{stat.value}</span>
                     </div>
-                </div>
-            </div>
+                ))}
 
-            {/* CPU Overhead */}
-            <div className="flex items-center gap-4">
-                <div className="flex flex-col">
-                    <span className="text-[10px] font-mono text-zinc-600 tracking-wider uppercase">
-                        CPU Overhead
-                    </span>
-                    <AnimatedPercent target={1.2} />
-                </div>
-                <div className="ml-auto">
-                    <div className="w-10 h-10 rounded-full bg-pink-500/20 flex items-center justify-center integrity-ring-pink">
-                        <span className="material-symbols-outlined text-[20px] text-pink-400">
-                            speed
-                        </span>
+                {/* Buffer Utilization Bar */}
+                <div className="pt-4">
+                    <div className="w-full bg-[#0d0e0f] h-1.5 rounded-full overflow-hidden">
+                        <motion.div
+                            initial={{ width: 0 }}
+                            whileInView={{ width: "78%" }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
+                            className="bg-[#79FE77] h-full"
+                        />
+                    </div>
+                    <div className="flex justify-between mt-2">
+                        <span className="text-[10px] font-mono text-[#BDCBB6]">BUFFER UTILIZATION</span>
+                        <span className="text-[10px] font-mono text-[#e9e9e9]">78%</span>
                     </div>
                 </div>
             </div>
@@ -98,60 +66,41 @@ function IntegrityCard() {
     );
 }
 
-/* -- Real-Time Activity Log (right) -- */
-function ActivityLogCard() {
+/* -- Real-Time Logs Panel (right) -- */
+function CoreLogsPanel() {
     const logEntries = [
-        { type: "info", tag: "INFO", text: "2024-05-21 14:02:11 - Neural engine initialized successfully.", color: "log-info" },
-        { type: "success", tag: "SUCCESS", text: "Indexing 1.2GB folder content successfully.", color: "log-success" },
-        { type: "process", tag: "PROCESS", text: "Scanning 1,422 files in root directory /users/aleph/desktop...", color: "log-process" },
-        { type: "security", tag: "SECURITY", text: "Cleaned EXIF data from IMG_0442.JPG (Location: Hidden).", color: "log-security" },
-        { type: "logic", tag: "LOGIC", text: "If/Then trigger activated: \"Project_X_Move\".", color: "log-logic" },
-        { type: "warn", tag: "WARN", text: "Node_04 reported 0.01ms spike. Auto-balancing load.", color: "log-warn" },
-        { type: "success", tag: "SUCCESS", text: "14 PDF files merged and optimized (Saved 244MB).", color: "log-success" },
-        { type: "process", tag: "PROCESS", text: "Encryption cycle completed for folder \"Confidential\".", color: "log-process" },
-        { type: "info", tag: "INFO", text: "System integrity check 100%.", color: "log-info" },
+        { time: "08:42:12.44", level: "INFO", levelColor: "text-[#79FE77]", text: "Initialized handshake with Node: 0x882..." },
+        { time: "08:42:12.89", level: "INFO", levelColor: "text-[#79FE77]", text: "AES-256 integrity check completed on payload_pkg_v4.tar.gz" },
+        { time: "08:42:13.01", level: "DEBUG", levelColor: "text-cyan-400", text: "Routing traffic via shard-east-04 (latency: 12ms)" },
+        { time: "08:42:13.45", level: "INFO", levelColor: "text-[#79FE77]", text: "Successfully scrubbed metadata for 412 local files." },
+        { time: "08:42:14.02", level: "WAIT", levelColor: "text-[#cdc5c2]", text: "Awaiting consensus from secondary clusters..." },
     ];
 
     return (
         <motion.div
             variants={cardVariants}
-            className="terminal-log flex flex-col flex-[1.5] overflow-hidden"
+            className="glass-panel rounded-xl p-8 border border-[#444748]/10 lg:col-span-2 font-mono text-[11px]"
         >
-            {/* Header bar */}
-            <div className="flex items-center justify-between px-5 py-3 border-b border-white/[0.04]">
-                <h3 className="text-[11px] font-mono text-zinc-400 tracking-[0.2em] uppercase">
-                    Real-Time Activity Log
-                </h3>
-                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_6px_rgba(34,197,94,0.6)]" />
-            </div>
+            <h4 className="font-bold text-[#e9e9e9] mb-6 flex items-center gap-3 font-[family-name:var(--font-space-grotesk)]">
+                <span className="material-symbols-outlined text-sm">terminal</span>
+                CORE_LOGS_STREAM
+            </h4>
 
-            {/* Log entries */}
-            <div className="p-5 flex flex-col gap-1 text-[11px] font-mono leading-relaxed max-h-[300px] overflow-y-auto">
+            <div className="space-y-2 text-[#BDCBB6]">
                 {logEntries.map((entry, i) => (
                     <motion.div
                         key={i}
                         initial={{ opacity: 0, x: -10 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ delay: i * 0.06, duration: 0.3 }}
-                        className="flex gap-2"
+                        transition={{ delay: i * 0.08, duration: 0.3 }}
+                        className={`flex gap-4 ${i === logEntries.length - 1 ? "animate-pulse" : ""}`}
                     >
-                        <span className={entry.color}>
-                            [{entry.tag}]
-                        </span>
-                        <span className="text-zinc-500">{entry.text}</span>
+                        <span className="text-zinc-600">{entry.time}</span>
+                        <span className={entry.levelColor}>[{entry.level}]</span>
+                        <span>{entry.text}</span>
                     </motion.div>
                 ))}
-            </div>
-
-            {/* Action buttons */}
-            <div className="px-5 py-3 border-t border-white/[0.04] flex gap-3">
-                <button className="text-[10px] font-mono text-zinc-500 tracking-wider uppercase px-3 py-1.5 rounded-md border border-white/[0.06] hover:border-white/[0.12] hover:text-zinc-300 transition-colors">
-                    Raw Log
-                </button>
-                <button className="text-[10px] font-mono text-zinc-500 tracking-wider uppercase px-3 py-1.5 rounded-md border border-white/[0.06] hover:border-white/[0.12] hover:text-zinc-300 transition-colors">
-                    History
-                </button>
             </div>
         </motion.div>
     );
@@ -159,16 +108,16 @@ function ActivityLogCard() {
 
 export default function SystemIntegritySection() {
     return (
-        <section className="px-4 max-w-5xl mx-auto w-full mt-4">
+        <section className="py-24 px-8 max-w-screen-2xl mx-auto">
             <motion.div
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-60px" }}
-                className="flex flex-col lg:flex-row gap-4"
+                className="grid grid-cols-1 lg:grid-cols-3 gap-8"
             >
-                <IntegrityCard />
-                <ActivityLogCard />
+                <SystemStatusPanel />
+                <CoreLogsPanel />
             </motion.div>
         </section>
     );

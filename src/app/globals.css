@@ -105,3 +105,16 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #79FE77;
   color: #003908;
 }
+
+/* ── Smooth scroll for anchor links ──────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Section Divider ─────────────────────────────── */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(121, 254, 119, 0.15), transparent);
+  max-width: 80%;
+  margin: 0 auto;
+}

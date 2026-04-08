@@ -19,9 +19,21 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "ALEPH — Tu centro de mando digital & neural",
+  title: "ALEPH — High-Performance File Automation Engine",
   description:
-    "Orquestación de archivos de alto nivel impulsada por Python. Inferencia local con privacidad absoluta y latencia cero.",
+    "Local-first file automation with zero latency and absolute privacy. Automate, organize, and secure your files with a powerful rule engine.",
+  keywords: ["file automation", "local-first", "privacy", "file organizer", "ALEPH", "desktop app"],
+  openGraph: {
+    title: "ALEPH — High-Performance File Automation Engine",
+    description: "Local-first file automation with zero latency and absolute privacy.",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ALEPH — High-Performance File Automation Engine",
+    description: "Local-first file automation with zero latency and absolute privacy.",
+  },
 };
 
 export default function RootLayout({

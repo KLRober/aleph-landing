@@ -53,7 +53,7 @@ export default function Header() {
                     <motion.button
                         whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.97 }}
-                        className="bg-[#e9e9e9] text-[#003908] px-5 py-2 text-sm font-bold tracking-tight rounded-lg hover:bg-zinc-200 transition-all hidden sm:block"
+                        className="bg-[#e9e9e9] text-[#0a0a0a] px-5 py-2 text-sm font-bold tracking-tight rounded-lg hover:bg-zinc-200 transition-all hidden sm:block"
                     >
                         Try for free
                     </motion.button>
@@ -92,7 +92,7 @@ export default function Header() {
                                 </a>
                             ))}
                             <div className="pt-4 border-t border-zinc-800/50">
-                                <button className="w-full bg-[#79FE77] text-[#003908] py-3 font-bold tracking-tight rounded-lg">
+                                <button className="w-full bg-[#C0C0C0] text-[#0a0a0a] py-3 font-bold tracking-tight rounded-lg">
                                     Download Free
                                 </button>
                             </div>

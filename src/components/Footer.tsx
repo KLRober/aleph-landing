@@ -1,33 +1,34 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const footerColumns = [
     {
         title: "Product",
         links: [
-            { label: "Features", href: "#features" },
-            { label: "Pricing", href: "#pricing" },
-            { label: "Changelog", href: "#" },
-            { label: "Roadmap", href: "#" },
+            { label: "Features", href: "/features" },
+            { label: "Pricing", href: "/pricing" },
+            { label: "Changelog", href: "/changelog" },
+            { label: "Roadmap", href: "/roadmap" },
         ],
     },
     {
         title: "Resources",
         links: [
-            { label: "Documentation", href: "#" },
-            { label: "API Reference", href: "#" },
-            { label: "Getting Started", href: "#how-it-works" },
-            { label: "FAQ", href: "#faq" },
+            { label: "Documentation", href: "/docs" },
+            { label: "API Reference", href: "/api-reference" },
+            { label: "Getting Started", href: "/getting-started" },
+            { label: "FAQ", href: "/faq" },
         ],
     },
     {
         title: "Legal",
         links: [
-            { label: "Privacy Policy", href: "#" },
-            { label: "Terms of Service", href: "#" },
-            { label: "Security Policy", href: "#" },
-            { label: "License", href: "#" },
+            { label: "Privacy Policy", href: "/privacy" },
+            { label: "Terms of Service", href: "/terms" },
+            { label: "Security Policy", href: "/security" },
+            { label: "License", href: "/license" },
         ],
     },
     {
@@ -65,9 +66,9 @@ export default function Footer() {
                         <input
                             type="email"
                             placeholder="your@email.com"
-                            className="flex-1 bg-[#0d0e0f] border border-[#444748]/20 rounded-lg px-3 py-2 text-xs text-zinc-300 placeholder:text-zinc-600 focus:outline-none focus:border-[#79FE77]/30 transition-colors"
+                            className="flex-1 bg-[#0d0e0f] border border-[#444748]/20 rounded-lg px-3 py-2 text-xs text-zinc-300 placeholder:text-zinc-600 focus:outline-none focus:border-[#C0C0C0]/30 transition-colors"
                         />
-                        <button className="bg-[#79FE77] text-[#003908] px-3 py-2 rounded-lg text-xs font-bold hover:bg-[#6ae668] transition-colors flex-shrink-0">
+                        <button className="bg-[#C0C0C0] text-[#0a0a0a] px-3 py-2 rounded-lg text-xs font-bold hover:bg-[#a0a0a0] transition-colors flex-shrink-0">
                             Subscribe
                         </button>
                     </div>
@@ -80,15 +81,25 @@ export default function Footer() {
                 {footerColumns.map((col) => (
                     <div key={col.title} className="flex flex-col gap-3 font-mono text-[10px] uppercase tracking-widest">
                         <div className="text-zinc-200 mb-1 text-[11px]">{col.title}</div>
-                        {col.links.map((link) => (
-                            <a
-                                key={link.label}
-                                href={link.href}
-                                className="text-zinc-500 hover:text-zinc-200 transition-colors underline-offset-4 hover:underline"
-                            >
-                                {link.label}
-                            </a>
-                        ))}
+                        {col.links.map((link) =>
+                            link.href.startsWith("/") ? (
+                                <Link
+                                    key={link.label}
+                                    href={link.href}
+                                    className="text-zinc-500 hover:text-zinc-200 transition-colors underline-offset-4 hover:underline"
+                                >
+                                    {link.label}
+                                </Link>
+                            ) : (
+                                <a
+                                    key={link.label}
+                                    href={link.href}
+                                    className="text-zinc-500 hover:text-zinc-200 transition-colors underline-offset-4 hover:underline"
+                                >
+                                    {link.label}
+                                </a>
+                            )
+                        )}
                     </div>
                 ))}
             </div>
@@ -113,7 +124,7 @@ export default function Footer() {
                 </div>
 
                 <div className="flex items-center gap-2 font-mono text-[10px] text-zinc-600 uppercase tracking-widest">
-                    <span className="w-2 h-2 rounded-full bg-[#79FE77]" />
+                    <span className="w-2 h-2 rounded-full bg-[#C0C0C0]" />
                     System Operational
                 </div>
             </div>

@@ -13,23 +13,23 @@ export default function CTASection() {
                 className="relative rounded-2xl overflow-hidden"
             >
                 {/* Background gradient */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#79FE77]/10 via-[#0d0e0f] to-cyan-500/5" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(121,254,119,0.08),transparent_60%)]" />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#C0C0C0]/10 via-[#0d0e0f] to-zinc-500/5" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(192,192,192,0.06),transparent_60%)]" />
 
                 {/* Border */}
-                <div className="absolute inset-0 rounded-2xl border border-[#79FE77]/20" />
+                <div className="absolute inset-0 rounded-2xl border border-[#C0C0C0]/20" />
 
                 {/* Content */}
                 <div className="relative z-10 text-center py-20 px-8">
                     {/* Decorative symbol */}
-                    <div className="text-6xl text-[#79FE77]/20 mb-6 font-[family-name:var(--font-space-grotesk)]">
+                    <div className="text-6xl text-[#C0C0C0]/20 mb-6 font-[family-name:var(--font-space-grotesk)]">
                         ℵ
                     </div>
 
                     <h2 className="text-4xl md:text-6xl font-bold text-[#e9e9e9] mb-6 font-[family-name:var(--font-space-grotesk)]">
                         Ready to take control?
                     </h2>
-                    <p className="text-lg text-[#BDCBB6] max-w-2xl mx-auto mb-10">
+                    <p className="text-lg text-[#B0B0B0] max-w-2xl mx-auto mb-10">
                         Stop managing files manually. Let ALEPH handle the repetitive work while you focus on what matters. Download now and experience the future of file automation.
                     </p>
 
@@ -37,7 +37,7 @@ export default function CTASection() {
                         <motion.button
                             whileHover={{ scale: 1.03 }}
                             whileTap={{ scale: 0.97 }}
-                            className="glow-button bg-[#79FE77] text-[#003908] px-10 py-4 font-bold tracking-tight rounded-lg transition-all flex items-center gap-3 text-lg"
+                            className="glow-button bg-[#C0C0C0] text-[#0a0a0a] px-10 py-4 font-bold tracking-tight rounded-lg transition-all flex items-center gap-3 text-lg"
                         >
                             <span className="material-symbols-outlined">download</span>
                             Download for Free
@@ -53,17 +53,17 @@ export default function CTASection() {
                     </div>
 
                     {/* Trust badges */}
-                    <div className="flex flex-wrap justify-center gap-6 mt-12 text-xs font-mono text-[#BDCBB6] uppercase tracking-widest">
+                    <div className="flex flex-wrap justify-center gap-6 mt-12 text-xs font-mono text-[#B0B0B0] uppercase tracking-widest">
                         <span className="flex items-center gap-2">
-                            <span className="material-symbols-outlined text-[#79FE77] text-sm">verified</span>
+                            <span className="material-symbols-outlined text-[#C0C0C0] text-sm">verified</span>
                             No signup required
                         </span>
                         <span className="flex items-center gap-2">
-                            <span className="material-symbols-outlined text-[#79FE77] text-sm">lock</span>
+                            <span className="material-symbols-outlined text-[#C0C0C0] text-sm">lock</span>
                             100% offline
                         </span>
                         <span className="flex items-center gap-2">
-                            <span className="material-symbols-outlined text-[#79FE77] text-sm">speed</span>
+                            <span className="material-symbols-outlined text-[#C0C0C0] text-sm">speed</span>
                             Installs in 30 seconds
                         </span>
                     </div>

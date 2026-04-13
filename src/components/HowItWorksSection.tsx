@@ -37,7 +37,7 @@ export default function HowItWorksSection() {
                 transition={{ duration: 0.6 }}
                 className="text-center mb-20"
             >
-                <h2 className="text-sm font-mono tracking-[0.4em] uppercase text-[#79FE77] mb-4">
+                <h2 className="text-sm font-mono tracking-[0.4em] uppercase text-[#C0C0C0] mb-4">
                     Getting Started
                 </h2>
                 <h3 className="text-4xl md:text-5xl font-bold text-[#e9e9e9] font-[family-name:var(--font-space-grotesk)]">
@@ -48,7 +48,7 @@ export default function HowItWorksSection() {
             {/* Steps */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
                 {/* Connection line */}
-                <div className="hidden md:block absolute top-16 left-[20%] right-[20%] h-px bg-gradient-to-r from-transparent via-[#79FE77]/20 to-transparent" />
+                <div className="hidden md:block absolute top-16 left-[20%] right-[20%] h-px bg-gradient-to-r from-transparent via-[#C0C0C0]/20 to-transparent" />
 
                 {steps.map((step, index) => (
                     <motion.div
@@ -61,20 +61,20 @@ export default function HowItWorksSection() {
                     >
                         {/* Step circle */}
                         <div className="w-32 h-32 rounded-full border border-[#444748]/20 bg-[#0d0e0f] flex flex-col items-center justify-center mb-8 relative">
-                            <span className="material-symbols-outlined text-[#79FE77] text-3xl mb-1">
+                            <span className="material-symbols-outlined text-[#C0C0C0] text-3xl mb-1">
                                 {step.icon}
                             </span>
-                            <span className="font-mono text-[10px] tracking-widest text-[#BDCBB6]">
+                            <span className="font-mono text-[10px] tracking-widest text-[#B0B0B0]">
                                 STEP {step.number}
                             </span>
                             {/* Pulse ring */}
-                            <div className="absolute inset-0 rounded-full border border-[#79FE77]/10 animate-ping" style={{ animationDuration: "3s" }} />
+                            <div className="absolute inset-0 rounded-full border border-[#C0C0C0]/10 animate-ping" style={{ animationDuration: "3s" }} />
                         </div>
 
                         <h4 className="text-xl font-bold text-[#e9e9e9] mb-3 font-[family-name:var(--font-space-grotesk)]">
                             {step.title}
                         </h4>
-                        <p className="text-sm text-[#BDCBB6] leading-relaxed max-w-xs">
+                        <p className="text-sm text-[#B0B0B0] leading-relaxed max-w-xs">
                             {step.description}
                         </p>
                     </motion.div>

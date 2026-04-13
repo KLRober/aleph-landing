@@ -50,13 +50,13 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
                 onClick={() => setIsOpen(!isOpen)}
                 className="w-full flex items-center justify-between py-6 text-left group"
             >
-                <span className="text-[#e9e9e9] font-medium text-lg pr-8 group-hover:text-[#79FE77] transition-colors">
+                <span className="text-[#e9e9e9] font-medium text-lg pr-8 group-hover:text-[#C0C0C0] transition-colors">
                     {question}
                 </span>
                 <motion.span
                     animate={{ rotate: isOpen ? 180 : 0 }}
                     transition={{ duration: 0.2 }}
-                    className="material-symbols-outlined text-[#BDCBB6] flex-shrink-0"
+                    className="material-symbols-outlined text-[#B0B0B0] flex-shrink-0"
                 >
                     expand_more
                 </motion.span>
@@ -71,7 +71,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                         className="overflow-hidden"
                     >
-                        <p className="text-[#BDCBB6] text-sm leading-relaxed pb-6 pr-12">
+                        <p className="text-[#B0B0B0] text-sm leading-relaxed pb-6 pr-12">
                             {answer}
                         </p>
                     </motion.div>
@@ -92,7 +92,7 @@ export default function FAQSection() {
                 transition={{ duration: 0.6 }}
                 className="text-center mb-16"
             >
-                <h2 className="text-sm font-mono tracking-[0.4em] uppercase text-[#79FE77] mb-4">
+                <h2 className="text-sm font-mono tracking-[0.4em] uppercase text-[#C0C0C0] mb-4">
                     FAQ
                 </h2>
                 <h3 className="text-4xl md:text-5xl font-bold text-[#e9e9e9] font-[family-name:var(--font-space-grotesk)]">

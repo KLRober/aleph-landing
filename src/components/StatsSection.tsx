@@ -66,13 +66,13 @@ export default function StatsSection() {
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             className="text-center"
                         >
-                            <div className="text-4xl md:text-5xl font-bold text-[#79FE77] mb-2 font-[family-name:var(--font-space-grotesk)]">
+                            <div className="text-4xl md:text-5xl font-bold text-[#C0C0C0] mb-2 font-[family-name:var(--font-space-grotesk)]">
                                 <AnimatedCounter target={stat.value} suffix={stat.suffix} />
                             </div>
                             <div className="text-sm text-[#e9e9e9] font-medium mb-1">
                                 {stat.label}
                             </div>
-                            <div className="text-xs text-[#BDCBB6] font-mono">
+                            <div className="text-xs text-[#B0B0B0] font-mono">
                                 {stat.sublabel}
                             </div>
                         </motion.div>

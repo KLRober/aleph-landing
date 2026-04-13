@@ -36,7 +36,7 @@ function FlowNode({ icon, label, sublabel, tagText, tagColor, borderColor, iconC
         <motion.div variants={nodeVariants} className="flex flex-col items-center gap-6 group">
             <div
                 className={`${isLarge ? "w-24 h-24 rounded-full border-2" : "w-20 h-20 rounded-xl border"} bg-[#0d0e0f] ${borderColor} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
-                style={isLarge ? { boxShadow: "0 0 30px rgba(121, 254, 119, 0.2)" } : {}}
+                style={isLarge ? { boxShadow: "0 0 30px rgba(192, 192, 192, 0.15)" } : {}}
             >
                 <span
                     className={`material-symbols-outlined ${isLarge ? "text-4xl" : "text-3xl"} ${iconColor}`}
@@ -53,7 +53,7 @@ function FlowNode({ icon, label, sublabel, tagText, tagColor, borderColor, iconC
                     {label}
                 </div>
                 {sublabel && (
-                    <div className="text-xs text-[#BDCBB6] mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="text-xs text-[#B0B0B0] mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
                         {sublabel}
                     </div>
                 )}
@@ -73,7 +73,7 @@ export default function NeuralFlowSection() {
                 transition={{ duration: 0.6 }}
                 className="text-center mb-20"
             >
-                <h2 className="text-sm font-mono tracking-[0.4em] uppercase text-[#79FE77] mb-4">
+                <h2 className="text-sm font-mono tracking-[0.4em] uppercase text-[#C0C0C0] mb-4">
                     Neural Infrastructure
                 </h2>
                 <h3 className="text-4xl font-medium text-[#e9e9e9] font-[family-name:var(--font-space-grotesk)]">
@@ -90,7 +90,7 @@ export default function NeuralFlowSection() {
                 className="relative glass-panel rounded-xl p-12 overflow-hidden border border-[#444748]/10"
             >
                 {/* Radial gradient overlay */}
-                <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(121,254,119,0.05),transparent)]" />
+                <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(192,192,192,0.04),transparent)]" />
 
                 {/* 3 Nodes */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">
@@ -99,18 +99,18 @@ export default function NeuralFlowSection() {
                         label="Local Storage"
                         sublabel="Primary data source"
                         tagText="Source Node"
-                        tagColor="text-[#BDCBB6]"
-                        borderColor="border-[#79FE77]/30"
-                        iconColor="text-[#79FE77]"
+                        tagColor="text-[#B0B0B0]"
+                        borderColor="border-[#C0C0C0]/30"
+                        iconColor="text-[#C0C0C0]"
                     />
                     <FlowNode
                         icon="hub"
                         label="Automation Engine"
                         sublabel="Core processing unit"
                         tagText="Aleph Core"
-                        tagColor="text-cyan-400"
-                        borderColor="border-[#79FE77]"
-                        iconColor="text-[#79FE77]"
+                        tagColor="text-zinc-300"
+                        borderColor="border-[#C0C0C0]"
+                        iconColor="text-[#C0C0C0]"
                         size="large"
                     />
                     <FlowNode
@@ -118,16 +118,16 @@ export default function NeuralFlowSection() {
                         label="Encrypted Vault"
                         sublabel="Secure output destination"
                         tagText="Edge Sink"
-                        tagColor="text-[#BDCBB6]"
-                        borderColor="border-cyan-400/30"
-                        iconColor="text-cyan-400"
+                        tagColor="text-[#B0B0B0]"
+                        borderColor="border-zinc-500/30"
+                        iconColor="text-zinc-300"
                     />
                 </div>
 
                 {/* Connection Lines SVG */}
                 <svg className="absolute inset-0 w-full h-full z-0 opacity-20 hidden md:block" preserveAspectRatio="none">
-                    <line x1="25%" y1="50%" x2="42%" y2="50%" stroke="#79FE77" strokeDasharray="10 5" strokeWidth="2" />
-                    <line x1="58%" y1="50%" x2="75%" y2="50%" stroke="#79FE77" strokeDasharray="10 5" strokeWidth="2" />
+                    <line x1="25%" y1="50%" x2="42%" y2="50%" stroke="#C0C0C0" strokeDasharray="10 5" strokeWidth="2" />
+                    <line x1="58%" y1="50%" x2="75%" y2="50%" stroke="#C0C0C0" strokeDasharray="10 5" strokeWidth="2" />
                 </svg>
             </motion.div>
         </section>

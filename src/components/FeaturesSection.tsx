@@ -25,42 +25,42 @@ const features = [
         title: "Lightning Fast",
         description:
             "Sub-millisecond file event detection with reactive watchers. No polling, no delays — pure event-driven throughput.",
-        color: "text-[#79FE77]",
+        color: "text-[#C0C0C0]",
     },
     {
         icon: "lock",
         title: "Privacy-First",
         description:
             "Everything runs locally on your machine. Zero cloud dependencies, zero data leaks. Your files never leave your disk.",
-        color: "text-cyan-400",
+        color: "text-zinc-300",
     },
     {
         icon: "auto_fix_high",
         title: "Smart Rules Engine",
         description:
             "Define complex automation rules with conditions, triggers, and actions. Regex support, date filters, size thresholds.",
-        color: "text-[#79FE77]",
+        color: "text-[#C0C0C0]",
     },
     {
         icon: "schedule",
         title: "Scheduled Tasks",
         description:
             "Set up recurring automations with cron-like scheduling. Daily cleanup, weekly backups, monthly archiving.",
-        color: "text-cyan-400",
+        color: "text-zinc-300",
     },
     {
         icon: "monitoring",
         title: "Real-Time Dashboard",
         description:
             "Live monitoring of all active rules, file events, and system metrics. Beautiful charts and actionable insights.",
-        color: "text-[#79FE77]",
+        color: "text-[#C0C0C0]",
     },
     {
         icon: "settings_suggest",
         title: "Extensible Toolkit",
         description:
             "Built-in utilities for file hashing, duplicate detection, metadata extraction, and batch renaming.",
-        color: "text-cyan-400",
+        color: "text-zinc-300",
     },
 ];
 
@@ -75,17 +75,17 @@ export default function FeaturesSection() {
                 transition={{ duration: 0.6 }}
                 className="text-center mb-16"
             >
-                <h2 className="text-sm font-mono tracking-[0.4em] uppercase text-[#79FE77] mb-4">
+                <h2 className="text-sm font-mono tracking-[0.4em] uppercase text-[#C0C0C0] mb-4">
                     Core Capabilities
                 </h2>
                 <h3 className="text-4xl md:text-5xl font-bold text-[#e9e9e9] font-[family-name:var(--font-space-grotesk)] mb-6">
                     Everything you need to
                     <br />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e9e9e9] to-[#79FE77]">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e9e9e9] to-[#C0C0C0]">
                         control your files
                     </span>
                 </h3>
-                <p className="text-[#BDCBB6] max-w-2xl mx-auto text-lg">
+                <p className="text-[#B0B0B0] max-w-2xl mx-auto text-lg">
                     ALEPH provides a complete suite of tools for file system automation, monitoring, and security — all running locally on your machine.
                 </p>
             </motion.div>
@@ -113,7 +113,7 @@ export default function FeaturesSection() {
                         <h4 className="text-xl font-bold text-[#e9e9e9] mb-3 font-[family-name:var(--font-space-grotesk)]">
                             {feature.title}
                         </h4>
-                        <p className="text-sm text-[#BDCBB6] leading-relaxed">
+                        <p className="text-sm text-[#B0B0B0] leading-relaxed">
                             {feature.description}
                         </p>
                     </motion.div>

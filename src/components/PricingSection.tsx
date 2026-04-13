@@ -82,13 +82,13 @@ export default function PricingSection() {
                 transition={{ duration: 0.6 }}
                 className="text-center mb-16"
             >
-                <h2 className="text-sm font-mono tracking-[0.4em] uppercase text-[#79FE77] mb-4">
+                <h2 className="text-sm font-mono tracking-[0.4em] uppercase text-[#C0C0C0] mb-4">
                     Pricing
                 </h2>
                 <h3 className="text-4xl md:text-5xl font-bold text-[#e9e9e9] font-[family-name:var(--font-space-grotesk)] mb-6">
                     Simple, transparent pricing
                 </h3>
-                <p className="text-[#BDCBB6] max-w-xl mx-auto text-lg">
+                <p className="text-[#B0B0B0] max-w-xl mx-auto text-lg">
                     Start free, upgrade when you&apos;re ready. No hidden fees, no surprises.
                 </p>
             </motion.div>
@@ -108,18 +108,18 @@ export default function PricingSection() {
                         whileHover={{ y: -4 }}
                         className={`rounded-xl p-8 border flex flex-col transition-all ${
                             plan.highlighted
-                                ? "bg-gradient-to-b from-[#79FE77]/10 to-[#1F2020]/60 border-[#79FE77]/30 relative"
+                                ? "bg-gradient-to-b from-[#C0C0C0]/10 to-[#1F2020]/60 border-[#C0C0C0]/30 relative"
                                 : "glass-panel border-[#444748]/10 hover:bg-[#1a1b1b]"
                         }`}
                     >
                         {plan.highlighted && (
-                            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#79FE77] text-[#003908] px-4 py-1 rounded-full text-xs font-bold font-mono tracking-wider">
+                            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#C0C0C0] text-[#0a0a0a] px-4 py-1 rounded-full text-xs font-bold font-mono tracking-wider">
                                 MOST POPULAR
                             </div>
                         )}
 
                         <div className="mb-6">
-                            <div className="text-sm font-mono text-[#BDCBB6] uppercase tracking-widest mb-2">
+                            <div className="text-sm font-mono text-[#B0B0B0] uppercase tracking-widest mb-2">
                                 {plan.name}
                             </div>
                             <div className="flex items-baseline gap-1">
@@ -127,10 +127,10 @@ export default function PricingSection() {
                                     {plan.price}
                                 </span>
                                 {plan.period && (
-                                    <span className="text-sm text-[#BDCBB6]">{plan.period}</span>
+                                    <span className="text-sm text-[#B0B0B0]">{plan.period}</span>
                                 )}
                             </div>
-                            <p className="text-sm text-[#BDCBB6] mt-3">
+                            <p className="text-sm text-[#B0B0B0] mt-3">
                                 {plan.description}
                             </p>
                         </div>
@@ -138,8 +138,8 @@ export default function PricingSection() {
                         {/* Features list */}
                         <ul className="space-y-3 mb-8 flex-1">
                             {plan.features.map((feature) => (
-                                <li key={feature} className="flex items-center gap-3 text-sm text-[#BDCBB6]">
-                                    <span className="material-symbols-outlined text-[#79FE77] text-base">
+                                <li key={feature} className="flex items-center gap-3 text-sm text-[#B0B0B0]">
+                                    <span className="material-symbols-outlined text-[#C0C0C0] text-base">
                                         check_circle
                                     </span>
                                     {feature}
@@ -153,7 +153,7 @@ export default function PricingSection() {
                             whileTap={{ scale: 0.98 }}
                             className={`w-full py-3 rounded-lg font-bold text-sm tracking-tight transition-all ${
                                 plan.highlighted
-                                    ? "bg-[#79FE77] text-[#003908] hover:bg-[#6ae668]"
+                                    ? "bg-[#C0C0C0] text-[#0a0a0a] hover:bg-[#a0a0a0]"
                                     : "bg-[#353434] border border-[#444748]/30 text-[#e9e9e9] hover:bg-[#3a3939]"
                             }`}
                         >

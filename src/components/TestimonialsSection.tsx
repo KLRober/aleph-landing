@@ -51,7 +51,7 @@ export default function TestimonialsSection() {
                 transition={{ duration: 0.6 }}
                 className="text-center mb-16"
             >
-                <h2 className="text-sm font-mono tracking-[0.4em] uppercase text-[#79FE77] mb-4">
+                <h2 className="text-sm font-mono tracking-[0.4em] uppercase text-[#C0C0C0] mb-4">
                     Testimonials
                 </h2>
                 <h3 className="text-4xl md:text-5xl font-bold text-[#e9e9e9] font-[family-name:var(--font-space-grotesk)]">
@@ -75,20 +75,20 @@ export default function TestimonialsSection() {
                     >
                         {/* Quote */}
                         <div className="mb-8">
-                            <span className="text-[#79FE77] text-3xl font-serif leading-none block mb-4">&ldquo;</span>
-                            <p className="text-[#BDCBB6] text-sm leading-relaxed">
+                            <span className="text-[#C0C0C0] text-3xl font-serif leading-none block mb-4">&ldquo;</span>
+                            <p className="text-[#B0B0B0] text-sm leading-relaxed">
                                 {t.quote}
                             </p>
                         </div>
 
                         {/* Author */}
                         <div className="flex items-center gap-4">
-                            <div className="w-10 h-10 rounded-full bg-[#0d0e0f] border border-[#444748]/30 flex items-center justify-center text-xs font-mono text-[#79FE77]">
+                            <div className="w-10 h-10 rounded-full bg-[#0d0e0f] border border-[#444748]/30 flex items-center justify-center text-xs font-mono text-[#C0C0C0]">
                                 {t.avatar}
                             </div>
                             <div>
                                 <div className="text-sm font-medium text-[#e9e9e9]">{t.name}</div>
-                                <div className="text-xs text-[#BDCBB6] font-mono">{t.role}</div>
+                                <div className="text-xs text-[#B0B0B0] font-mono">{t.role}</div>
                             </div>
                         </div>
                     </motion.div>

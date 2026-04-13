@@ -22,7 +22,7 @@ const cardVariants = {
 /* -- System Status Panel (left) -- */
 function SystemStatusPanel() {
     const stats = [
-        { label: "NODE_ALPHA_01", value: "OPERATIONAL", valueColor: "text-[#79FE77]" },
+        { label: "NODE_ALPHA_01", value: "OPERATIONAL", valueColor: "text-[#C0C0C0]" },
         { label: "CPU_LOAD", value: "12.4%", valueColor: "text-[#e9e9e9]" },
         { label: "THROUGHPUT", value: "1.2 GB/s", valueColor: "text-[#e9e9e9]" },
     ];
@@ -33,14 +33,14 @@ function SystemStatusPanel() {
             className="glass-panel rounded-xl p-8 border border-[#444748]/10 lg:col-span-1"
         >
             <h4 className="font-bold text-[#e9e9e9] mb-6 flex items-center gap-3 font-[family-name:var(--font-space-grotesk)]">
-                <span className="w-2 h-2 rounded-full bg-[#79FE77]" />
+                <span className="w-2 h-2 rounded-full bg-[#C0C0C0]" />
                 SYSTEM STATUS
             </h4>
 
             <div className="space-y-6">
                 {stats.map((stat) => (
                     <div key={stat.label} className="flex justify-between items-center pb-4 border-b border-[#444748]/10">
-                        <span className="text-xs font-mono text-[#BDCBB6]">{stat.label}</span>
+                        <span className="text-xs font-mono text-[#B0B0B0]">{stat.label}</span>
                         <span className={`text-xs font-mono ${stat.valueColor}`}>{stat.value}</span>
                     </div>
                 ))}
@@ -53,11 +53,11 @@ function SystemStatusPanel() {
                             whileInView={{ width: "78%" }}
                             viewport={{ once: true }}
                             transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
-                            className="bg-[#79FE77] h-full"
+                            className="bg-[#C0C0C0] h-full"
                         />
                     </div>
                     <div className="flex justify-between mt-2">
-                        <span className="text-[10px] font-mono text-[#BDCBB6]">BUFFER UTILIZATION</span>
+                        <span className="text-[10px] font-mono text-[#B0B0B0]">BUFFER UTILIZATION</span>
                         <span className="text-[10px] font-mono text-[#e9e9e9]">78%</span>
                     </div>
                 </div>
@@ -69,10 +69,10 @@ function SystemStatusPanel() {
 /* -- Real-Time Logs Panel (right) -- */
 function CoreLogsPanel() {
     const logEntries = [
-        { time: "08:42:12.44", level: "INFO", levelColor: "text-[#79FE77]", text: "Initialized handshake with Node: 0x882..." },
-        { time: "08:42:12.89", level: "INFO", levelColor: "text-[#79FE77]", text: "AES-256 integrity check completed on payload_pkg_v4.tar.gz" },
-        { time: "08:42:13.01", level: "DEBUG", levelColor: "text-cyan-400", text: "Routing traffic via shard-east-04 (latency: 12ms)" },
-        { time: "08:42:13.45", level: "INFO", levelColor: "text-[#79FE77]", text: "Successfully scrubbed metadata for 412 local files." },
+        { time: "08:42:12.44", level: "INFO", levelColor: "text-[#C0C0C0]", text: "Initialized handshake with Node: 0x882..." },
+        { time: "08:42:12.89", level: "INFO", levelColor: "text-[#C0C0C0]", text: "AES-256 integrity check completed on payload_pkg_v4.tar.gz" },
+        { time: "08:42:13.01", level: "DEBUG", levelColor: "text-zinc-300", text: "Routing traffic via shard-east-04 (latency: 12ms)" },
+        { time: "08:42:13.45", level: "INFO", levelColor: "text-[#C0C0C0]", text: "Successfully scrubbed metadata for 412 local files." },
         { time: "08:42:14.02", level: "WAIT", levelColor: "text-[#cdc5c2]", text: "Awaiting consensus from secondary clusters..." },
     ];
 
@@ -86,7 +86,7 @@ function CoreLogsPanel() {
                 CORE_LOGS_STREAM
             </h4>
 
-            <div className="space-y-2 text-[#BDCBB6]">
+            <div className="space-y-2 text-[#B0B0B0]">
                 {logEntries.map((entry, i) => (
                     <motion.div
                         key={i}

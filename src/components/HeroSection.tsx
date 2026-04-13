@@ -16,8 +16,8 @@ export default function HeroSection() {
                     >
                         {/* Status Badge */}
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#2a2a2a] border border-[#444748]/20 mb-8">
-                            <span className="w-2 h-2 rounded-full bg-[#79FE77] animate-pulse" />
-                            <span className="text-[10px] font-mono tracking-widest uppercase text-[#BDCBB6]">
+                            <span className="w-2 h-2 rounded-full bg-[#C0C0C0] animate-pulse" />
+                            <span className="text-[10px] font-mono tracking-widest uppercase text-[#B0B0B0]">
                                 System Status: V1.0.4 Live
                             </span>
                         </div>
@@ -25,13 +25,13 @@ export default function HeroSection() {
                         {/* Headline */}
                         <h1 className="text-6xl md:text-8xl font-bold tracking-tighter text-[#e9e9e9] leading-[0.9] mb-8 font-[family-name:var(--font-space-grotesk)]">
                             WELCOME TO{" "}
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e9e9e9] to-[#79FE77]">
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e9e9e9] to-[#C0C0C0]">
                                 ALEPH
                             </span>
                         </h1>
 
                         {/* Subtitle */}
-                        <p className="text-xl md:text-2xl text-[#BDCBB6] max-w-xl mb-12 leading-relaxed font-light">
+                        <p className="text-xl md:text-2xl text-[#B0B0B0] max-w-xl mb-12 leading-relaxed font-light">
                             The high-performance automation engine for local-first file control. Precise, silent, and authoritative.
                         </p>
 
@@ -40,7 +40,7 @@ export default function HeroSection() {
                             <motion.button
                                 whileHover={{ scale: 1.03 }}
                                 whileTap={{ scale: 0.97 }}
-                                className="glow-button bg-[#79FE77] text-[#003908] px-8 py-4 font-bold tracking-tight rounded-lg transition-all flex items-center gap-3"
+                                className="glow-button bg-[#C0C0C0] text-[#0a0a0a] px-8 py-4 font-bold tracking-tight rounded-lg transition-all flex items-center gap-3"
                             >
                                 INITIALIZE NODE
                                 <span className="material-symbols-outlined">terminal</span>
@@ -63,7 +63,7 @@ export default function HeroSection() {
                         className="relative aspect-square flex items-center justify-center"
                     >
                         {/* Ambient glow */}
-                        <div className="absolute inset-0 bg-gradient-to-tr from-[#79FE77]/10 via-cyan-500/5 to-transparent rounded-full blur-[120px]" />
+                        <div className="absolute inset-0 bg-gradient-to-tr from-[#C0C0C0]/10 via-zinc-500/5 to-transparent rounded-full blur-[120px]" />
 
                         <div className="relative group">
                             {/* Giant ℵ Symbol */}
@@ -73,8 +73,8 @@ export default function HeroSection() {
 
                             {/* Concentric Rings */}
                             <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="w-64 h-64 border border-[#79FE77]/30 rounded-full animate-spin-slow" />
-                                <div className="absolute w-80 h-80 border-[0.5px] border-cyan-400/20 rounded-full animate-spin-slow-reverse" />
+                                <div className="w-64 h-64 border border-[#C0C0C0]/30 rounded-full animate-spin-slow" />
+                                <div className="absolute w-80 h-80 border-[0.5px] border-zinc-500/20 rounded-full animate-spin-slow-reverse" />
                                 <svg className="absolute w-96 h-96 opacity-60" viewBox="0 0 100 100">
                                     <circle
                                         cx="50"
@@ -87,8 +87,8 @@ export default function HeroSection() {
                                     />
                                     <defs>
                                         <linearGradient id="neon-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                            <stop offset="0%" style={{ stopColor: "#79FE77", stopOpacity: 1 }} />
-                                            <stop offset="100%" style={{ stopColor: "#00e5ff", stopOpacity: 1 }} />
+                                            <stop offset="0%" style={{ stopColor: "#C0C0C0", stopOpacity: 1 }} />
+                                            <stop offset="100%" style={{ stopColor: "#888888", stopOpacity: 1 }} />
                                         </linearGradient>
                                     </defs>
                                 </svg>
@@ -100,7 +100,7 @@ export default function HeroSection() {
 
             {/* Neural Flow Connector */}
             <div className="h-32 w-full flex flex-col items-center justify-center opacity-40">
-                <div className="w-px h-full bg-gradient-to-b from-[#79FE77] to-transparent" />
+                <div className="w-px h-full bg-gradient-to-b from-[#C0C0C0] to-transparent" />
             </div>
         </>
     );

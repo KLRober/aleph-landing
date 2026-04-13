@@ -37,13 +37,13 @@ export default function BentoGrid() {
                     className="md:col-span-2 md:row-span-2 glass-panel rounded-xl p-10 border border-[#444748]/10 flex flex-col justify-between hover:bg-[#2a2a2a] transition-all group"
                 >
                     <div>
-                        <span className="material-symbols-outlined text-[#79FE77] text-4xl mb-6 block">
+                        <span className="material-symbols-outlined text-[#C0C0C0] text-4xl mb-6 block">
                             speed
                         </span>
                         <h4 className="text-3xl font-bold text-[#e9e9e9] mb-4 font-[family-name:var(--font-space-grotesk)]">
                             Automation Engine
                         </h4>
-                        <p className="text-[#BDCBB6] leading-relaxed">
+                        <p className="text-[#B0B0B0] leading-relaxed">
                             Reactive infrastructure that evolves with your file system. High-performance throughput with zero latency overhead.
                         </p>
                     </div>
@@ -67,7 +67,7 @@ export default function BentoGrid() {
                         <h4 className="text-xl font-bold text-[#e9e9e9] mb-2 font-[family-name:var(--font-space-grotesk)]">
                             AES-256 Scrubbing
                         </h4>
-                        <p className="text-sm text-[#BDCBB6]">
+                        <p className="text-sm text-[#B0B0B0]">
                             Military-grade data sanitation at the edge. Automatic masking for all sensitive metadata.
                         </p>
                     </div>
@@ -84,13 +84,13 @@ export default function BentoGrid() {
                     whileHover={{ borderColor: "rgba(68, 71, 72, 0.3)" }}
                     className="glass-panel rounded-xl p-8 border border-[#444748]/10 hover:bg-[#2a2a2a] transition-all"
                 >
-                    <span className="material-symbols-outlined text-[#79FE77] mb-4 block">
+                    <span className="material-symbols-outlined text-[#C0C0C0] mb-4 block">
                         analytics
                     </span>
                     <h4 className="text-lg font-bold text-[#e9e9e9] mb-2 font-[family-name:var(--font-space-grotesk)]">
                         Diagnostics
                     </h4>
-                    <p className="text-xs text-[#BDCBB6]">
+                    <p className="text-xs text-[#B0B0B0]">
                         Real-time health monitoring of every node in your decentralized cluster.
                     </p>
                 </motion.div>
@@ -101,13 +101,13 @@ export default function BentoGrid() {
                     whileHover={{ borderColor: "rgba(68, 71, 72, 0.3)" }}
                     className="glass-panel rounded-xl p-8 border border-[#444748]/10 hover:bg-[#2a2a2a] transition-all"
                 >
-                    <span className="material-symbols-outlined text-cyan-400 mb-4 block">
+                    <span className="material-symbols-outlined text-zinc-300 mb-4 block">
                         integration_instructions
                     </span>
                     <h4 className="text-lg font-bold text-[#e9e9e9] mb-2 font-[family-name:var(--font-space-grotesk)]">
                         Toolkit
                     </h4>
-                    <p className="text-xs text-[#BDCBB6]">
+                    <p className="text-xs text-[#B0B0B0]">
                         Seamless integration with your existing workflow via CLI and high-level SDKs.
                     </p>
                 </motion.div>

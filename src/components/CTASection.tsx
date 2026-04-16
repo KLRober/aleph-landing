@@ -30,7 +30,7 @@ export default function CTASection() {
                         Ready to take control?
                     </h2>
                     <p className="text-lg text-[#B0B0B0] max-w-2xl mx-auto mb-10">
-                        Stop managing files manually. Let ALEPH handle the repetitive work while you focus on what matters. Download now and experience the future of file automation.
+                        Stop managing files manually. Let ALEPH compress your PDFs, organize your downloads, strip your metadata, and back up your work — all on autopilot, all on your machine.
                     </p>
 
                     <div className="flex flex-wrap justify-center gap-4">
@@ -56,7 +56,7 @@ export default function CTASection() {
                     <div className="flex flex-wrap justify-center gap-6 mt-12 text-xs font-mono text-[#B0B0B0] uppercase tracking-widest">
                         <span className="flex items-center gap-2">
                             <span className="material-symbols-outlined text-[#C0C0C0] text-sm">verified</span>
-                            No signup required
+                            Free plan available
                         </span>
                         <span className="flex items-center gap-2">
                             <span className="material-symbols-outlined text-[#C0C0C0] text-sm">lock</span>
@@ -64,7 +64,7 @@ export default function CTASection() {
                         </span>
                         <span className="flex items-center gap-2">
                             <span className="material-symbols-outlined text-[#C0C0C0] text-sm">speed</span>
-                            Installs in 30 seconds
+                            Windows 10 & 11
                         </span>
                     </div>
                 </div>

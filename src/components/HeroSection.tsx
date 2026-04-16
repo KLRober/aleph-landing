@@ -17,16 +17,16 @@ export default function HeroSection() {
                     >
                         {/* Headline */}
                         <h1 className="text-6xl md:text-8xl font-bold tracking-tighter text-[#e9e9e9] leading-[0.9] mb-8 font-[family-name:var(--font-space-grotesk)]">
-                            WELCOME TO{" "}
+                            YOUR FILES.{" "}
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e9e9e9] to-[#888888]">
-                                ALEPH
+                                YOUR RULES.
                             </span>
                         </h1>
 
                         {/* Subtitle */}
                         <p className="text-xl md:text-2xl text-[#B0B0B0] max-w-xl mb-12 leading-relaxed font-light">
-                            The high-performance automation engine for local-first file control.
-                            Precise, silent, and authoritative.
+                            The automation engine that turns your digital chaos into automatic order.
+                            100% local, 100% private — your files never leave your machine.
                         </p>
 
                         {/* CTAs */}
@@ -36,15 +36,15 @@ export default function HeroSection() {
                                 whileTap={{ scale: 0.97 }}
                                 className="glow-button bg-[#C0C0C0] text-[#0a0a0a] px-8 py-4 font-bold tracking-tight rounded-lg transition-all flex items-center gap-3"
                             >
-                                INITIALIZE NODE
-                                <span className="material-symbols-outlined">terminal</span>
+                                DOWNLOAD FREE
+                                <span className="material-symbols-outlined">download</span>
                             </motion.button>
                             <motion.button
                                 whileHover={{ scale: 1.03, backgroundColor: "rgba(58, 57, 57, 1)" }}
                                 whileTap={{ scale: 0.97 }}
                                 className="bg-[#353434] border border-[#444748]/30 text-[#e9e9e9] px-8 py-4 font-bold tracking-tight rounded-lg transition-all"
                             >
-                                READ MANIFESTO
+                                SEE HOW IT WORKS
                             </motion.button>
                         </div>
                     </motion.div>

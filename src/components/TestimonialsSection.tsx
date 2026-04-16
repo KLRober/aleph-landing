@@ -21,21 +21,21 @@ const cardVariants = {
 
 const testimonials = [
     {
-        quote: "ALEPH transformed my workflow. Files that used to pile up on my desktop are now automatically sorted, renamed, and archived. It's like having a digital assistant that never sleeps.",
+        quote: "I set up a rule: every PDF that lands in Downloads gets compressed and moved to my project folder. ALEPH does it in the background while I keep working. It just works, no fuss.",
         name: "Santiago M.",
         role: "Software Engineer",
         avatar: "SM",
     },
     {
-        quote: "The privacy-first approach is what sold me. No cloud, no subscriptions, no data leaving my machine. Just pure, local-first automation that actually works.",
+        quote: "The privacy-first approach is what sold me. My photos had GPS data embedded and I didn't even know. ALEPH strips all that metadata with one click — no cloud upload, no risk.",
         name: "Laura K.",
-        role: "Data Analyst",
+        role: "Photographer",
         avatar: "LK",
     },
     {
-        quote: "I was skeptical about file automation tools, but ALEPH's rule engine is incredibly flexible. I set up complex workflows in minutes that would have taken hours of scripting.",
+        quote: "The Trigger → Condition → Action model clicked instantly. In minutes I had pipelines auto-organizing my files by extension, compressing images for social, and backing up contracts.",
         name: "Mateo R.",
-        role: "DevOps Lead",
+        role: "Freelance Designer",
         avatar: "MR",
     },
 ];

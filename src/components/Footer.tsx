@@ -17,8 +17,8 @@ const footerColumns = [
         title: "Resources",
         links: [
             { label: "Documentation", href: "/docs" },
-            { label: "API Reference", href: "/api-reference" },
             { label: "Getting Started", href: "/getting-started" },
+            { label: "Security", href: "/security" },
             { label: "FAQ", href: "/faq" },
         ],
     },

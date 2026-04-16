@@ -7,32 +7,32 @@ const faqs = [
     {
         question: "Is ALEPH really free?",
         answer:
-            "Yes! The free tier includes up to 5 active rules and 3 watched directories. It's perfect for personal use. You can upgrade to Pro at any time for unlimited rules and advanced features.",
+            "Yes! The free plan includes the automation engine with basic rules, the File Optimizer (up to 3 GB), system tray integration, and command palette. Upgrade to Pro for unlimited rules, Document Studio, Image Studio, Security Center, and OCR.",
     },
     {
         question: "Does ALEPH send my files to the cloud?",
         answer:
-            "No. ALEPH is 100% local-first. Your files never leave your machine. All processing happens locally, which means zero latency and complete privacy.",
+            "Never. ALEPH is 100% local-first. All file processing happens on your machine. The app works fully offline in Sovereign Mode — it only needs internet for authentication and Stripe payments.",
     },
     {
         question: "What operating systems are supported?",
         answer:
-            "ALEPH currently supports Windows 10/11. macOS and Linux support is on the roadmap and planned for upcoming releases.",
+            "ALEPH currently supports Windows 10 and Windows 11. macOS and Linux support are on the roadmap for future releases.",
     },
     {
         question: "Can I create custom automation rules?",
         answer:
-            "Absolutely. The visual rule builder lets you combine triggers (file created, modified, renamed), conditions (name patterns, size, date, regex), and actions (move, copy, rename, delete, notify) into powerful automation workflows.",
+            "Absolutely. The visual Pipeline Builder lets you combine triggers (folder watcher, manual), 9 types of conditions (extension, name patterns, size, date, regex), and 20+ actions (move, compress, convert, encrypt, notify) into chained pipelines.",
     },
     {
-        question: "How does ALEPH differ from similar tools?",
+        question: "How does automation work in the background?",
         answer:
-            "ALEPH is built for performance and privacy. Unlike cloud-based solutions, it runs entirely on your machine with event-driven architecture instead of polling. The rule engine supports complex conditions that most alternatives lack.",
+            "ALEPH uses a Trigger → Condition → Action model. Set a folder watcher, define your filters, and chain multiple actions into a pipeline. It runs silently from the system tray, processing files as they arrive — even waiting for downloads to finish before acting.",
     },
     {
-        question: "Can I use ALEPH for team/enterprise workflows?",
+        question: "What can Document Studio and Image Studio do?",
         answer:
-            "Yes. Our Enterprise plan includes multi-user management, custom integrations, audit logging, and on-premise deployment options. Contact our sales team for a custom quote.",
+            "Document Studio handles PDFs: merge, split, compress (3 quality levels), rotate, reorder, and watermark. Image Studio offers batch conversion, auto-enhance, smart compression, watermarking, social media resize, and AI-powered background removal.",
     },
 ];
 

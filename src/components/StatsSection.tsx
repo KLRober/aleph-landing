@@ -40,10 +40,10 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
 }
 
 const stats = [
-    { value: 50000, suffix: "+", label: "Files Processed Daily", sublabel: "Average per active node" },
-    { value: 12, suffix: "ms", label: "Avg. Latency", sublabel: "Event detection speed" },
-    { value: 99, suffix: ".9%", label: "Uptime", sublabel: "System reliability" },
-    { value: 500, suffix: "+", label: "Active Users", sublabel: "Growing community" },
+    { value: 20, suffix: "+", label: "Automation Actions", sublabel: "In the Action Registry" },
+    { value: 9, suffix: "", label: "Condition Types", sublabel: "Regex, size, date & more" },
+    { value: 256, suffix: "-bit", label: "AES Encryption", sublabel: "Military-grade security" },
+    { value: 3, suffix: "", label: "Languages", sublabel: "Español, English, Deutsch" },
 ];
 
 export default function StatsSection() {

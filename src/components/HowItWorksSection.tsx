@@ -7,21 +7,21 @@ const steps = [
         number: "01",
         title: "Install & Configure",
         description:
-            "Download ALEPH and run the installer. Configure your watched directories and set your preferences through the intuitive dashboard.",
+            "Download ALEPH for Windows and run the installer. Sign in, select the folders you want to monitor, and set your preferences in the dashboard.",
         icon: "download",
     },
     {
         number: "02",
-        title: "Define Your Rules",
+        title: "Build Your Rules",
         description:
-            "Create automation rules using the visual rule builder. Set triggers, conditions, and actions — no coding required.",
+            "Use the Pipeline Builder to create automation rules: pick a trigger, set conditions (extension, size, name, regex), and chain actions into a pipeline.",
         icon: "tune",
     },
     {
         number: "03",
         title: "Let It Run",
         description:
-            "ALEPH runs silently in the background, executing your rules in real-time. Monitor everything from the system tray.",
+            "ALEPH runs silently from the system tray, executing your pipelines in real-time. Monitor everything from the dashboard or the command palette.",
         icon: "rocket_launch",
     },
 ];

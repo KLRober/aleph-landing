@@ -24,13 +24,13 @@ const plans = [
         name: "Free",
         price: "$0",
         period: "forever",
-        description: "Perfect for personal use and getting started with file automation.",
+        description: "Everything you need to start automating your files. No credit card required.",
         features: [
-            "Up to 5 active rules",
-            "3 watched directories",
-            "Basic automation actions",
-            "System tray integration",
-            "Community support",
+            "Automation Engine (basic rules)",
+            "File Optimizer (up to 3 GB)",
+            "System tray & command palette",
+            "Desktop notifications",
+            "3 languages (ES, EN, DE)",
         ],
         cta: "Download Free",
         highlighted: false,
@@ -39,35 +39,19 @@ const plans = [
         name: "Pro",
         price: "$12",
         period: "/month",
-        description: "For power users who need advanced automation and more control.",
+        description: "For power users who need the full suite of tools and unlimited automation.",
         features: [
-            "Unlimited rules",
-            "Unlimited directories",
-            "Advanced conditions & regex",
-            "Scheduled automations",
+            "Unlimited automation rules",
+            "Document Studio (PDF suite)",
+            "Image Studio (batch processing)",
+            "Security Center (AES-256 backup)",
+            "OCR & Deep Search Engine",
+            "Duplicate detection & treemap",
+            "Smart Search & AI tagging",
             "Priority support",
-            "Dashboard analytics",
-            "Duplicate detection",
         ],
         cta: "Start Free Trial",
         highlighted: true,
-    },
-    {
-        name: "Enterprise",
-        price: "Custom",
-        period: "",
-        description: "For teams and organizations with custom needs and compliance requirements.",
-        features: [
-            "Everything in Pro",
-            "Multi-user management",
-            "Custom integrations",
-            "Dedicated support",
-            "SLA guarantees",
-            "Audit logging",
-            "On-premise deployment",
-        ],
-        cta: "Contact Sales",
-        highlighted: false,
     },
 ];
 
@@ -99,7 +83,7 @@ export default function PricingSection() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-60px" }}
-                className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch"
+                className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch max-w-4xl mx-auto"
             >
                 {plans.map((plan) => (
                     <motion.div

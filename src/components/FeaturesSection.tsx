@@ -22,44 +22,44 @@ const cardVariants = {
 const features = [
     {
         icon: "bolt",
-        title: "Lightning Fast",
+        title: "Automation Engine",
         description:
-            "Sub-millisecond file event detection with reactive watchers. No polling, no delays — pure event-driven throughput.",
+            "Create intelligent rules with Trigger → Condition → Action. 20+ actions, 9 condition types, chained pipelines that run silently in the background.",
         color: "text-[#C0C0C0]",
     },
     {
         icon: "lock",
-        title: "Privacy-First",
+        title: "100% Local & Private",
         description:
-            "Everything runs locally on your machine. Zero cloud dependencies, zero data leaks. Your files never leave your disk.",
+            "Every file is processed on your machine. Zero cloud uploads, zero data leaks. Works fully offline with Sovereign Mode — only needs internet for auth and payments.",
         color: "text-zinc-300",
     },
     {
-        icon: "auto_fix_high",
-        title: "Smart Rules Engine",
+        icon: "description",
+        title: "Document Studio",
         description:
-            "Define complex automation rules with conditions, triggers, and actions. Regex support, date filters, size thresholds.",
+            "Complete PDF processing suite: compress with 3 quality levels, merge, split, rotate, reorder pages, and add customizable watermarks.",
         color: "text-[#C0C0C0]",
     },
     {
-        icon: "schedule",
-        title: "Scheduled Tasks",
+        icon: "image",
+        title: "Image Studio",
         description:
-            "Set up recurring automations with cron-like scheduling. Daily cleanup, weekly backups, monthly archiving.",
+            "Batch conversion between formats, auto-enhance, smart compression, watermarking, social media resize, and AI-powered background removal.",
         color: "text-zinc-300",
     },
     {
-        icon: "monitoring",
-        title: "Real-Time Dashboard",
+        icon: "shield",
+        title: "Security Center",
         description:
-            "Live monitoring of all active rules, file events, and system metrics. Beautiful charts and actionable insights.",
+            "AES-256 encrypted backups, incremental backup, DoD 5220.22-M secure shred, metadata stripping, integrity manifests, and Security Health Score.",
         color: "text-[#C0C0C0]",
     },
     {
-        icon: "settings_suggest",
-        title: "Extensible Toolkit",
+        icon: "search",
+        title: "OCR & Deep Search",
         description:
-            "Built-in utilities for file hashing, duplicate detection, metadata extraction, and batch renaming.",
+            "Extract text from images and scanned PDFs with Tesseract OCR. Index file contents and search inside documents — not just by filename.",
         color: "text-zinc-300",
     },
 ];
@@ -86,7 +86,7 @@ export default function FeaturesSection() {
                     </span>
                 </h3>
                 <p className="text-[#B0B0B0] max-w-2xl mx-auto text-lg">
-                    ALEPH provides a complete suite of tools for file system automation, monitoring, and security — all running locally on your machine.
+                    From automated file sorting to PDF processing, image optimization, encrypted backups, and OCR search — all running locally on your machine.
                 </p>
             </motion.div>
 

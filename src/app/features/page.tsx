@@ -8,48 +8,48 @@ export const metadata = {
 const features = [
     {
         icon: "bolt",
-        title: "Real-Time File Monitoring",
-        description: "ALEPH continuously watches your designated directories with near-zero CPU overhead, detecting new files, modifications, and deletions the instant they happen.",
+        title: "Automation Engine",
+        description: "The core of ALEPH. Create rules with Trigger → Condition → Action. Chain actions into pipelines that run automatically when files arrive — compress, move, rename, notify, and more. 20+ actions across 5 categories.",
     },
     {
-        icon: "account_tree",
-        title: "Visual Rule Engine",
-        description: "Build complex automation workflows using our intuitive rule builder. Combine triggers, conditions, and actions without writing a single line of code.",
+        icon: "folder_open",
+        title: "File Optimizer",
+        description: "Visual file explorer with built-in organization tools: auto-sort by extension, pack files, file inspector with hash/EXIF/PDF metadata, SHA-256 duplicate detection, disk usage treemap, and smart search with advanced filters.",
+    },
+    {
+        icon: "description",
+        title: "Document Studio",
+        description: "Complete PDF processing suite: compress with 3 quality levels (web/balanced/print), merge multiple PDFs, split by page, rotate, reorder pages, and add configurable text watermarks.",
+    },
+    {
+        icon: "image",
+        title: "Image Studio",
+        description: "Batch image processing with 8 parallel workers: format conversion (JPG, PNG, WebP, BMP, TIFF), auto-enhance, smart compression, watermarking, social media resize, and AI background removal with rembg.",
+    },
+    {
+        icon: "shield",
+        title: "Security Center",
+        description: "AES-256 encrypted backups, incremental backup with manifests, backup restoration, EXIF/GPS metadata stripping, DoD 5220.22-M secure shred, SHA-256/512 hash calculator, integrity manifests, and Security Health Score (A-D grading).",
+    },
+    {
+        icon: "search",
+        title: "OCR & Deep Search",
+        description: "Extract text from images and scanned PDFs using Tesseract (Spanish + English). Build a local search index and find content inside documents — not just by filename. Auto-indexes new files detected by the watcher.",
     },
     {
         icon: "lock",
-        title: "Local-First Architecture",
-        description: "All processing happens on your machine. No cloud uploads, no external servers. Your files never leave your device — guaranteed privacy by design.",
+        title: "100% Local & Private",
+        description: "All processing happens on your machine. Zero cloud uploads. Works fully offline in Sovereign Mode — only needs internet for authentication and Stripe payments. Your files never leave your disk.",
     },
     {
-        icon: "speed",
-        title: "Zero-Latency Execution",
-        description: "Our Rust-powered core processes file events in under 50ms. Actions execute immediately when conditions are met, with no queue delays.",
-    },
-    {
-        icon: "palette",
-        title: "Smart File Organization",
-        description: "Automatically sort files by type, date, project, or custom metadata. Create folder structures that maintain themselves over time.",
-    },
-    {
-        icon: "notifications_active",
-        title: "Desktop Notifications",
-        description: "Stay informed with configurable desktop notifications. Know exactly what ALEPH is doing and when, without constant monitoring.",
+        icon: "dashboard",
+        title: "Real-Time Dashboard",
+        description: "Live metrics panel showing disk storage, RAM usage, system info, active rules, files processed, space saved, Security Health Score, action breakdown, and recent activity feed — all with 30-second cache for performance.",
     },
     {
         icon: "terminal",
-        title: "Extensible Plugin System",
-        description: "Extend ALEPH's capabilities with custom plugins. Integrate with your existing tools and workflows through our plugin API.",
-    },
-    {
-        icon: "schedule",
-        title: "Scheduled Automations",
-        description: "Set up time-based triggers to run automations on a schedule. Perfect for regular maintenance tasks like cleanup and archival.",
-    },
-    {
-        icon: "backup",
-        title: "Automatic Backups",
-        description: "Configure automatic file backups before destructive operations. Never worry about accidentally losing important files again.",
+        title: "Command Palette & System Tray",
+        description: "Spotlight-like command palette accessible via global hotkey. System tray icon with quick actions: organize files, pause automation, check watcher status. ALEPH is always one click or keystroke away.",
     },
 ];
 

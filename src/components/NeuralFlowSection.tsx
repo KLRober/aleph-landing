@@ -55,7 +55,7 @@ const LAYER_DETAILS: Record<string, { title: string; subtitle: string; features:
             "Priority-based rule ordering",
             "Chained condition evaluation",
         ],
-        stat: { value: "128", label: "Active rules" },
+        stat: { value: "9", label: "Condition types" },
     },
     execute: {
         title: "Execution Layer",
@@ -66,7 +66,7 @@ const LAYER_DETAILS: Record<string, { title: string; subtitle: string; features:
             "Conflict resolution with safe paths",
             "Rollback support on failure",
         ],
-        stat: { value: "94MB/s", label: "Throughput" },
+        stat: { value: "20+", label: "Actions available" },
     },
     verify: {
         title: "Verification Layer",

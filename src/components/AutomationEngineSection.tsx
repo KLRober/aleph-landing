@@ -44,7 +44,7 @@ export default function BentoGrid() {
                             Automation Engine
                         </h4>
                         <p className="text-[#B0B0B0] leading-relaxed">
-                            Reactive infrastructure that evolves with your file system. High-performance throughput with zero latency overhead.
+                            Create intelligent rules with Trigger → Condition → Action. ALEPH watches your folders and executes chained pipelines automatically — compress, move, rename, notify, and more.
                         </p>
                     </div>
                     <div className="mt-8 overflow-hidden rounded-lg bg-[#0d0e0f] aspect-video relative">
@@ -65,10 +65,10 @@ export default function BentoGrid() {
                 >
                     <div className="flex-1">
                         <h4 className="text-xl font-bold text-[#e9e9e9] mb-2 font-[family-name:var(--font-space-grotesk)]">
-                            AES-256 Scrubbing
+                            Privacy Vault
                         </h4>
                         <p className="text-sm text-[#B0B0B0]">
-                            Military-grade data sanitation at the edge. Automatic masking for all sensitive metadata.
+                            Strip EXIF/GPS metadata, encrypt with AES-256, and securely shred files with DoD 5220.22-M multi-pass overwrite.
                         </p>
                     </div>
                     <div className="w-24 h-24 rounded-lg bg-[#0d0e0f] border border-[#444748]/20 flex items-center justify-center flex-shrink-0">
@@ -88,10 +88,10 @@ export default function BentoGrid() {
                         analytics
                     </span>
                     <h4 className="text-lg font-bold text-[#e9e9e9] mb-2 font-[family-name:var(--font-space-grotesk)]">
-                        Diagnostics
+                        Dashboard
                     </h4>
                     <p className="text-xs text-[#B0B0B0]">
-                        Real-time health monitoring of every node in your decentralized cluster.
+                        Real-time metrics: files processed, disk savings, active rules, Security Health Score, and activity feed.
                     </p>
                 </motion.div>
 
@@ -105,10 +105,10 @@ export default function BentoGrid() {
                         integration_instructions
                     </span>
                     <h4 className="text-lg font-bold text-[#e9e9e9] mb-2 font-[family-name:var(--font-space-grotesk)]">
-                        Toolkit
+                        File Optimizer
                     </h4>
                     <p className="text-xs text-[#B0B0B0]">
-                        Seamless integration with your existing workflow via CLI and high-level SDKs.
+                        Smart file explorer with duplicate detection, disk usage treemap, metadata inspector, and auto-organization.
                     </p>
                 </motion.div>
             </motion.div>

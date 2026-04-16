@@ -22,9 +22,9 @@ const cardVariants = {
 /* -- System Status Panel (left) -- */
 function SystemStatusPanel() {
     const stats = [
-        { label: "NODE_ALPHA_01", value: "OPERATIONAL", valueColor: "text-[#C0C0C0]" },
-        { label: "CPU_LOAD", value: "12.4%", valueColor: "text-[#e9e9e9]" },
-        { label: "THROUGHPUT", value: "1.2 GB/s", valueColor: "text-[#e9e9e9]" },
+        { label: "AUTOMATION_ENGINE", value: "OPERATIONAL", valueColor: "text-[#C0C0C0]" },
+        { label: "ACTIVE_RULES", value: "7 / 10", valueColor: "text-[#e9e9e9]" },
+        { label: "FILES_PROCESSED", value: "1,247", valueColor: "text-[#e9e9e9]" },
     ];
 
     return (
@@ -50,15 +50,15 @@ function SystemStatusPanel() {
                     <div className="w-full bg-[#0d0e0f] h-1.5 rounded-full overflow-hidden">
                         <motion.div
                             initial={{ width: 0 }}
-                            whileInView={{ width: "78%" }}
+                            whileInView={{ width: "64%" }}
                             viewport={{ once: true }}
                             transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
                             className="bg-[#C0C0C0] h-full"
                         />
                     </div>
                     <div className="flex justify-between mt-2">
-                        <span className="text-[10px] font-mono text-[#B0B0B0]">BUFFER UTILIZATION</span>
-                        <span className="text-[10px] font-mono text-[#e9e9e9]">78%</span>
+                        <span className="text-[10px] font-mono text-[#B0B0B0]">DISK SAVINGS</span>
+                        <span className="text-[10px] font-mono text-[#e9e9e9]">2.4 GB</span>
                     </div>
                 </div>
             </div>
@@ -69,11 +69,11 @@ function SystemStatusPanel() {
 /* -- Real-Time Logs Panel (right) -- */
 function CoreLogsPanel() {
     const logEntries = [
-        { time: "08:42:12.44", level: "INFO", levelColor: "text-[#C0C0C0]", text: "Initialized handshake with Node: 0x882..." },
-        { time: "08:42:12.89", level: "INFO", levelColor: "text-[#C0C0C0]", text: "AES-256 integrity check completed on payload_pkg_v4.tar.gz" },
-        { time: "08:42:13.01", level: "DEBUG", levelColor: "text-zinc-300", text: "Routing traffic via shard-east-04 (latency: 12ms)" },
-        { time: "08:42:13.45", level: "INFO", levelColor: "text-[#C0C0C0]", text: "Successfully scrubbed metadata for 412 local files." },
-        { time: "08:42:14.02", level: "WAIT", levelColor: "text-[#cdc5c2]", text: "Awaiting consensus from secondary clusters..." },
+        { time: "14:32:07.12", level: "INFO", levelColor: "text-[#C0C0C0]", text: "Rule 'PDF Organizer' triggered on invoice_march.pdf" },
+        { time: "14:32:07.45", level: "INFO", levelColor: "text-[#C0C0C0]", text: "Pipeline: compress_pdf → move_to executed successfully" },
+        { time: "14:32:08.01", level: "INFO", levelColor: "text-[#C0C0C0]", text: "Watcher detected new file in ~/Downloads (stabilizing...)" },
+        { time: "14:32:09.33", level: "INFO", levelColor: "text-[#C0C0C0]", text: "Stripped EXIF metadata from IMG_2847.jpg — GPS removed" },
+        { time: "14:32:10.02", level: "DONE", levelColor: "text-[#cdc5c2]", text: "Incremental backup completed — 14 files, 847 MB saved" },
     ];
 
     return (
@@ -83,7 +83,7 @@ function CoreLogsPanel() {
         >
             <h4 className="font-bold text-[#e9e9e9] mb-6 flex items-center gap-3 font-[family-name:var(--font-space-grotesk)]">
                 <span className="material-symbols-outlined text-sm">terminal</span>
-                CORE_LOGS_STREAM
+                EXECUTION_LOG
             </h4>
 
             <div className="space-y-2 text-[#B0B0B0]">

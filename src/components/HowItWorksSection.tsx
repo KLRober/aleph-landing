@@ -9,6 +9,7 @@ const steps = [
         description:
             "Download ALEPH for Windows and run the installer. Sign in, select the folders you want to monitor, and set your preferences in the dashboard.",
         icon: "download",
+        accent: "#ffffff",
     },
     {
         number: "02",
@@ -16,6 +17,7 @@ const steps = [
         description:
             "Use the Pipeline Builder to create automation rules: pick a trigger, set conditions (extension, size, name, regex), and chain actions into a pipeline.",
         icon: "tune",
+        accent: "#9ca3af",
     },
     {
         number: "03",
@@ -23,6 +25,7 @@ const steps = [
         description:
             "ALEPH runs silently from the system tray, executing your pipelines in real-time. Monitor everything from the dashboard or the command palette.",
         icon: "rocket_launch",
+        accent: "#ffffff",
     },
 ];
 
@@ -37,10 +40,10 @@ export default function HowItWorksSection() {
                 transition={{ duration: 0.6 }}
                 className="text-center mb-20"
             >
-                <h2 className="text-sm font-mono tracking-[0.4em] uppercase text-[#C0C0C0] mb-4">
+                <h2 className="text-sm font-mono tracking-[0.4em] uppercase text-zinc-500 mb-4">
                     Getting Started
                 </h2>
-                <h3 className="text-4xl md:text-5xl font-bold text-[#e9e9e9] font-[family-name:var(--font-space-grotesk)]">
+                <h3 className="text-4xl md:text-5xl font-bold text-[#e9e9e9] font-[family-name:var(--font-outfit)]">
                     Up and running in minutes
                 </h3>
             </motion.div>
@@ -48,7 +51,7 @@ export default function HowItWorksSection() {
             {/* Steps */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
                 {/* Connection line */}
-                <div className="hidden md:block absolute top-16 left-[20%] right-[20%] h-px bg-gradient-to-r from-transparent via-[#C0C0C0]/20 to-transparent" />
+                <div className="hidden md:block absolute top-16 left-[20%] right-[20%] h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
                 {steps.map((step, index) => (
                     <motion.div
@@ -60,21 +63,32 @@ export default function HowItWorksSection() {
                         className="relative flex flex-col items-center text-center"
                     >
                         {/* Step circle */}
-                        <div className="w-32 h-32 rounded-full border border-[#444748]/20 bg-[#0d0e0f] flex flex-col items-center justify-center mb-8 relative">
-                            <span className="material-symbols-outlined text-[#C0C0C0] text-3xl mb-1">
+                        <div
+                            className="w-32 h-32 rounded-full border bg-[#0d0e10] flex flex-col items-center justify-center mb-8 relative"
+                            style={{ borderColor: `${step.accent}20` }}
+                        >
+                            <span
+                                className="material-symbols-outlined text-3xl mb-1"
+                                style={{ color: step.accent }}
+                            >
                                 {step.icon}
                             </span>
-                            <span className="font-mono text-[10px] tracking-widest text-[#B0B0B0]">
+                            <span className="font-mono text-[10px] tracking-widest text-[#9ca3af]">
                                 STEP {step.number}
                             </span>
-                            {/* Pulse ring */}
-                            <div className="absolute inset-0 rounded-full border border-[#C0C0C0]/10 animate-ping" style={{ animationDuration: "3s" }} />
+                            {/* Subtle glow ring */}
+                            <div
+                                className="absolute inset-0 rounded-full opacity-20"
+                                style={{
+                                    boxShadow: `0 0 30px ${step.accent}30`,
+                                }}
+                            />
                         </div>
 
-                        <h4 className="text-xl font-bold text-[#e9e9e9] mb-3 font-[family-name:var(--font-space-grotesk)]">
+                        <h4 className="text-xl font-bold text-[#e9e9e9] mb-3 font-[family-name:var(--font-outfit)]">
                             {step.title}
                         </h4>
-                        <p className="text-sm text-[#B0B0B0] leading-relaxed max-w-xs">
+                        <p className="text-sm text-[#9ca3af] leading-relaxed max-w-xs">
                             {step.description}
                         </p>
                     </motion.div>

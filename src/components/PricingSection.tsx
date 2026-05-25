@@ -11,11 +11,12 @@ const containerVariants = {
 };
 
 const cardVariants = {
-    hidden: { opacity: 0, y: 25 },
+    hidden: { opacity: 0, y: 25, filter: "blur(4px)" },
     visible: {
         opacity: 1,
         y: 0,
-        transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] as const },
+        filter: "blur(0px)",
+        transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const },
     },
 };
 
@@ -66,13 +67,13 @@ export default function PricingSection() {
                 transition={{ duration: 0.6 }}
                 className="text-center mb-16"
             >
-                <h2 className="text-sm font-mono tracking-[0.4em] uppercase text-[#C0C0C0] mb-4">
+                <h2 className="text-sm font-mono tracking-[0.4em] uppercase text-zinc-500 mb-4">
                     Pricing
                 </h2>
-                <h3 className="text-4xl md:text-5xl font-bold text-[#e9e9e9] font-[family-name:var(--font-space-grotesk)] mb-6">
+                <h3 className="text-4xl md:text-5xl font-bold text-[#e9e9e9] font-[family-name:var(--font-outfit)] mb-6">
                     Simple, transparent pricing
                 </h3>
-                <p className="text-[#B0B0B0] max-w-xl mx-auto text-lg">
+                <p className="text-[#9ca3af] max-w-xl mx-auto text-lg">
                     Start free, upgrade when you&apos;re ready. No hidden fees, no surprises.
                 </p>
             </motion.div>
@@ -90,31 +91,31 @@ export default function PricingSection() {
                         key={plan.name}
                         variants={cardVariants}
                         whileHover={{ y: -4 }}
-                        className={`rounded-xl p-8 border flex flex-col transition-all ${
+                        className={`rounded-2xl p-8 border flex flex-col transition-all ${
                             plan.highlighted
-                                ? "bg-gradient-to-b from-[#C0C0C0]/10 to-[#1F2020]/60 border-[#C0C0C0]/30 relative"
-                                : "glass-panel border-[#444748]/10 hover:bg-[#1a1b1b]"
+                                ? "bg-gradient-to-b from-white/5 to-[#1b1f27]/80 border-white/20 relative"
+                                : "glass-panel border-[#333842]/30 card-hover-glow"
                         }`}
                     >
                         {plan.highlighted && (
-                            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#C0C0C0] text-[#0a0a0a] px-4 py-1 rounded-full text-xs font-bold font-mono tracking-wider">
+                            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-[#0f1115] px-4 py-1 rounded-full text-xs font-bold font-mono tracking-wider">
                                 MOST POPULAR
                             </div>
                         )}
 
                         <div className="mb-6">
-                            <div className="text-sm font-mono text-[#B0B0B0] uppercase tracking-widest mb-2">
+                            <div className="text-sm font-mono text-[#9ca3af] uppercase tracking-widest mb-2">
                                 {plan.name}
                             </div>
                             <div className="flex items-baseline gap-1">
-                                <span className="text-4xl font-bold text-[#e9e9e9] font-[family-name:var(--font-space-grotesk)]">
+                                <span className="text-4xl font-bold text-[#e9e9e9] font-[family-name:var(--font-outfit)]" style={{ fontVariantNumeric: "tabular-nums" }}>
                                     {plan.price}
                                 </span>
                                 {plan.period && (
-                                    <span className="text-sm text-[#B0B0B0]">{plan.period}</span>
+                                    <span className="text-sm text-[#9ca3af]">{plan.period}</span>
                                 )}
                             </div>
-                            <p className="text-sm text-[#B0B0B0] mt-3">
+                            <p className="text-sm text-[#9ca3af] mt-3">
                                 {plan.description}
                             </p>
                         </div>
@@ -122,8 +123,8 @@ export default function PricingSection() {
                         {/* Features list */}
                         <ul className="space-y-3 mb-8 flex-1">
                             {plan.features.map((feature) => (
-                                <li key={feature} className="flex items-center gap-3 text-sm text-[#B0B0B0]">
-                                    <span className="material-symbols-outlined text-[#C0C0C0] text-base">
+                                <li key={feature} className="flex items-center gap-3 text-sm text-[#9ca3af]">
+                                    <span className="material-symbols-outlined text-white text-base">
                                         check_circle
                                     </span>
                                     {feature}
@@ -135,10 +136,10 @@ export default function PricingSection() {
                         <motion.button
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
-                            className={`w-full py-3 rounded-lg font-bold text-sm tracking-tight transition-all ${
+                            className={`w-full py-3 rounded-xl font-bold text-sm tracking-tight transition-all ${
                                 plan.highlighted
-                                    ? "bg-[#C0C0C0] text-[#0a0a0a] hover:bg-[#a0a0a0]"
-                                    : "bg-[#353434] border border-[#444748]/30 text-[#e9e9e9] hover:bg-[#3a3939]"
+                                    ? "accent-button"
+                                    : "bg-[#1c1e22] border border-[#333842]/40 text-[#e9e9e9] hover:bg-[#252830]"
                             }`}
                         >
                             {plan.cta}

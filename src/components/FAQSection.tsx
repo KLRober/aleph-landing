@@ -44,19 +44,19 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="border-b border-[#444748]/10"
+            className="border-b border-[#333842]/20"
         >
             <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="w-full flex items-center justify-between py-6 text-left group"
             >
-                <span className="text-[#e9e9e9] font-medium text-lg pr-8 group-hover:text-[#C0C0C0] transition-colors">
+                <span className="text-[#e9e9e9] font-medium text-lg pr-8 group-hover:text-white transition-colors duration-200">
                     {question}
                 </span>
                 <motion.span
                     animate={{ rotate: isOpen ? 180 : 0 }}
                     transition={{ duration: 0.2 }}
-                    className="material-symbols-outlined text-[#B0B0B0] flex-shrink-0"
+                    className="material-symbols-outlined text-[#9ca3af] flex-shrink-0 group-hover:text-white transition-colors duration-200"
                 >
                     expand_more
                 </motion.span>
@@ -71,7 +71,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                         className="overflow-hidden"
                     >
-                        <p className="text-[#B0B0B0] text-sm leading-relaxed pb-6 pr-12">
+                        <p className="text-[#9ca3af] text-sm leading-relaxed pb-6 pr-12">
                             {answer}
                         </p>
                     </motion.div>
@@ -92,10 +92,10 @@ export default function FAQSection() {
                 transition={{ duration: 0.6 }}
                 className="text-center mb-16"
             >
-                <h2 className="text-sm font-mono tracking-[0.4em] uppercase text-[#C0C0C0] mb-4">
+                <h2 className="text-sm font-mono tracking-[0.4em] uppercase text-zinc-500 mb-4">
                     FAQ
                 </h2>
-                <h3 className="text-4xl md:text-5xl font-bold text-[#e9e9e9] font-[family-name:var(--font-space-grotesk)]">
+                <h3 className="text-4xl md:text-5xl font-bold text-[#e9e9e9] font-[family-name:var(--font-outfit)]">
                     Frequently asked questions
                 </h3>
             </motion.div>

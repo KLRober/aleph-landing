@@ -7,7 +7,6 @@ import StatsSection from "@/components/StatsSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
 import SystemIntegritySection from "@/components/SystemIntegritySection";
 import TestimonialsSection from "@/components/TestimonialsSection";
-import PricingSection from "@/components/PricingSection";
 import FAQSection from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
@@ -15,7 +14,7 @@ import ScrollBackground from "@/components/ScrollBackground";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col bg-[#121414] text-[#e5e2e1] relative">
+    <main className="flex min-h-screen flex-col bg-[#0f1115] text-[#e8e6e3] relative">
       {/* Scroll-animated background */}
       <ScrollBackground />
 
@@ -28,7 +27,6 @@ export default function Home() {
       <HowItWorksSection />
       <SystemIntegritySection />
       <TestimonialsSection />
-      <PricingSection />
       <FAQSection />
       <CTASection />
       <Footer />

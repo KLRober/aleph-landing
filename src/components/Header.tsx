@@ -9,13 +9,12 @@ export default function Header() {
     const navLinks = [
         { label: "Features", href: "#features" },
         { label: "How it Works", href: "#how-it-works" },
-        { label: "Pricing", href: "#pricing" },
         { label: "FAQ", href: "#faq" },
         { label: "Docs", href: "#docs" },
     ];
 
     return (
-        <nav className="sticky top-0 w-full z-50 bg-zinc-950/40 backdrop-blur-xl bg-gradient-to-b from-zinc-800/10 to-transparent">
+        <nav className="sticky top-0 w-full z-50 bg-[#0f1115]/60 backdrop-blur-xl border-b border-[#333842]/20">
             <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -23,16 +22,17 @@ export default function Header() {
                 className="flex justify-between items-center px-8 py-4 max-w-screen-2xl mx-auto"
             >
                 {/* Logo */}
-                <a href="#" className="text-xl font-bold tracking-tighter text-zinc-50 uppercase font-[family-name:var(--font-space-grotesk)]">
-                    ALEPH V1
+                <a href="#" className="text-xl font-extrabold tracking-tighter uppercase font-[family-name:var(--font-outfit)] flex items-center gap-2">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e9e9e9] to-[#9ca3af]">ALEPH</span>
+                    <span className="text-[10px] font-mono text-zinc-500 tracking-wider mt-0.5">V1</span>
                 </a>
 
                 {/* Nav links — desktop */}
-                <div className="hidden md:flex items-center space-x-8 font-[family-name:var(--font-space-grotesk)] tracking-tight text-sm font-medium">
+                <div className="hidden md:flex items-center space-x-8 font-[family-name:var(--font-outfit)] tracking-tight text-sm font-medium">
                     {navLinks.map((link) => (
                         <a
                             key={link.label}
-                            className="text-zinc-400 hover:text-zinc-200 transition-colors"
+                            className="text-[#9ca3af] hover:text-[#e8e6e3] transition-colors duration-200"
                             href={link.href}
                         >
                             {link.label}
@@ -46,22 +46,24 @@ export default function Header() {
                         href="https://github.com"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hidden sm:flex items-center gap-2 text-zinc-400 hover:text-white transition-all text-sm"
+                        aria-label="View on GitHub"
+                        className="hidden sm:flex items-center gap-2 text-[#666] hover:text-[#e8e6e3] transition-colors text-sm"
                     >
-                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" /></svg>
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" /></svg>
                     </a>
                     <motion.button
                         whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.97 }}
-                        className="bg-[#e9e9e9] text-[#0a0a0a] px-5 py-2 text-sm font-bold tracking-tight rounded-lg hover:bg-zinc-200 transition-all hidden sm:block"
+                        className="accent-button px-5 py-2 text-sm font-bold tracking-tight rounded-lg hidden sm:block"
                     >
-                        Try for free
+                        Download
                     </motion.button>
 
                     {/* Mobile menu button */}
                     <button
                         onClick={() => setMobileOpen(!mobileOpen)}
-                        className="md:hidden text-zinc-400 hover:text-white transition-colors"
+                        className="md:hidden text-[#9ca3af] hover:text-white transition-colors"
+                        aria-label={mobileOpen ? "Close menu" : "Open menu"}
                     >
                         <span className="material-symbols-outlined">
                             {mobileOpen ? "close" : "menu"}
@@ -78,22 +80,22 @@ export default function Header() {
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="md:hidden overflow-hidden border-t border-zinc-800/50"
+                        className="md:hidden overflow-hidden border-t border-[#333842]/30"
                     >
-                        <div className="px-8 py-6 flex flex-col gap-4 bg-zinc-950/90 backdrop-blur-xl">
+                        <div className="px-8 py-6 flex flex-col gap-4 bg-[#0f1115]/95 backdrop-blur-xl">
                             {navLinks.map((link) => (
                                 <a
                                     key={link.label}
                                     href={link.href}
                                     onClick={() => setMobileOpen(false)}
-                                    className="text-zinc-300 hover:text-white transition-colors font-[family-name:var(--font-space-grotesk)] text-lg"
+                                    className="text-[#9ca3af] hover:text-white transition-colors font-[family-name:var(--font-outfit)] text-lg"
                                 >
                                     {link.label}
                                 </a>
                             ))}
-                            <div className="pt-4 border-t border-zinc-800/50">
-                                <button className="w-full bg-[#C0C0C0] text-[#0a0a0a] py-3 font-bold tracking-tight rounded-lg">
-                                    Download Free
+                            <div className="pt-4 border-t border-[#333842]/30">
+                                <button className="w-full accent-button py-3 font-bold tracking-tight rounded-lg">
+                                    Download Now
                                 </button>
                             </div>
                         </div>

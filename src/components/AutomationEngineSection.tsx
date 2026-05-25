@@ -12,11 +12,12 @@ const containerVariants = {
 };
 
 const cardVariants = {
-    hidden: { opacity: 0, y: 25 },
+    hidden: { opacity: 0, y: 25, filter: "blur(4px)" },
     visible: {
         opacity: 1,
         y: 0,
-        transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] as const },
+        filter: "blur(0px)",
+        transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const },
     },
 };
 
@@ -33,26 +34,28 @@ export default function BentoGrid() {
                 {/* Large Feature — 2×2 */}
                 <motion.div
                     variants={cardVariants}
-                    whileHover={{ borderColor: "rgba(68, 71, 72, 0.3)" }}
-                    className="md:col-span-2 md:row-span-2 glass-panel rounded-xl p-10 border border-[#444748]/10 flex flex-col justify-between hover:bg-[#2a2a2a] transition-all group"
+                    className="md:col-span-2 md:row-span-2 glass-panel rounded-2xl p-10 border border-[#333842]/30 flex flex-col justify-between card-hover-glow group"
                 >
                     <div>
-                        <span className="material-symbols-outlined text-[#C0C0C0] text-4xl mb-6 block">
-                            speed
-                        </span>
-                        <h4 className="text-3xl font-bold text-[#e9e9e9] mb-4 font-[family-name:var(--font-space-grotesk)]">
+                        <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-6">
+                            <span className="material-symbols-outlined text-white text-2xl">
+                                speed
+                            </span>
+                        </div>
+                        <h4 className="text-3xl font-bold text-[#e9e9e9] mb-4 font-[family-name:var(--font-outfit)]">
                             Automation Engine
                         </h4>
-                        <p className="text-[#B0B0B0] leading-relaxed">
+                        <p className="text-[#9ca3af] leading-relaxed">
                             Create intelligent rules with Trigger → Condition → Action. ALEPH watches your folders and executes chained pipelines automatically — compress, move, rename, notify, and more.
                         </p>
                     </div>
-                    <div className="mt-8 overflow-hidden rounded-lg bg-[#0d0e0f] aspect-video relative">
+                    <div className="mt-8 overflow-hidden rounded-xl bg-[#08090b] aspect-video relative border border-[#333842]/20">
                         <Image
-                            src="/bento-hero.webp"
-                            alt="Abstract 3D digital block visualization"
+                            src="/pipeline-visual.png"
+                            alt="Pipeline visualization showing Trigger, Condition, and Action nodes connected by luminous data streams"
                             fill
-                            className="object-cover opacity-50 group-hover:scale-105 transition-transform duration-700"
+                            className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-700"
+                            sizes="(max-width: 768px) 100vw, 50vw"
                         />
                     </div>
                 </motion.div>
@@ -60,19 +63,18 @@ export default function BentoGrid() {
                 {/* Medium Feature — AES-256 Scrubbing */}
                 <motion.div
                     variants={cardVariants}
-                    whileHover={{ borderColor: "rgba(68, 71, 72, 0.3)" }}
-                    className="md:col-span-2 glass-panel rounded-xl p-10 border border-[#444748]/10 flex items-center gap-8 hover:bg-[#2a2a2a] transition-all group"
+                    className="md:col-span-2 glass-panel rounded-2xl p-10 border border-[#333842]/30 flex items-center gap-8 card-hover-glow group"
                 >
                     <div className="flex-1">
-                        <h4 className="text-xl font-bold text-[#e9e9e9] mb-2 font-[family-name:var(--font-space-grotesk)]">
+                        <h4 className="text-xl font-bold text-[#e9e9e9] mb-2 font-[family-name:var(--font-outfit)]">
                             Privacy Vault
                         </h4>
-                        <p className="text-sm text-[#B0B0B0]">
+                        <p className="text-sm text-[#9ca3af]">
                             Strip EXIF/GPS metadata, encrypt with AES-256, and securely shred files with DoD 5220.22-M multi-pass overwrite.
                         </p>
                     </div>
-                    <div className="w-24 h-24 rounded-lg bg-[#0d0e0f] border border-[#444748]/20 flex items-center justify-center flex-shrink-0">
-                        <span className="material-symbols-outlined text-[#e9e9e9] text-3xl group-hover:rotate-12 transition-transform">
+                    <div className="w-24 h-24 rounded-xl bg-[#0d0e10] border border-[#333842]/30 flex items-center justify-center flex-shrink-0 group-hover:border-white/20 transition-colors">
+                        <span className="material-symbols-outlined text-white text-3xl group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500">
                             security
                         </span>
                     </div>
@@ -81,16 +83,17 @@ export default function BentoGrid() {
                 {/* Small Feature 1 — Diagnostics */}
                 <motion.div
                     variants={cardVariants}
-                    whileHover={{ borderColor: "rgba(68, 71, 72, 0.3)" }}
-                    className="glass-panel rounded-xl p-8 border border-[#444748]/10 hover:bg-[#2a2a2a] transition-all"
+                    className="glass-panel rounded-2xl p-8 border border-[#333842]/30 card-hover-glow"
                 >
-                    <span className="material-symbols-outlined text-[#C0C0C0] mb-4 block">
-                        analytics
-                    </span>
-                    <h4 className="text-lg font-bold text-[#e9e9e9] mb-2 font-[family-name:var(--font-space-grotesk)]">
+                    <div className="w-10 h-10 rounded-lg bg-[#9ca3af]/10 flex items-center justify-center mb-4">
+                        <span className="material-symbols-outlined text-[#9ca3af] text-xl">
+                            analytics
+                        </span>
+                    </div>
+                    <h4 className="text-lg font-bold text-[#e9e9e9] mb-2 font-[family-name:var(--font-outfit)]">
                         Dashboard
                     </h4>
-                    <p className="text-xs text-[#B0B0B0]">
+                    <p className="text-xs text-[#9ca3af] leading-relaxed">
                         Real-time metrics: files processed, disk savings, active rules, Security Health Score, and activity feed.
                     </p>
                 </motion.div>
@@ -98,16 +101,17 @@ export default function BentoGrid() {
                 {/* Small Feature 2 — Toolkit */}
                 <motion.div
                     variants={cardVariants}
-                    whileHover={{ borderColor: "rgba(68, 71, 72, 0.3)" }}
-                    className="glass-panel rounded-xl p-8 border border-[#444748]/10 hover:bg-[#2a2a2a] transition-all"
+                    className="glass-panel rounded-2xl p-8 border border-[#333842]/30 card-hover-glow"
                 >
-                    <span className="material-symbols-outlined text-zinc-300 mb-4 block">
-                        integration_instructions
-                    </span>
-                    <h4 className="text-lg font-bold text-[#e9e9e9] mb-2 font-[family-name:var(--font-space-grotesk)]">
+                    <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center mb-4">
+                        <span className="material-symbols-outlined text-white text-xl">
+                            integration_instructions
+                        </span>
+                    </div>
+                    <h4 className="text-lg font-bold text-[#e9e9e9] mb-2 font-[family-name:var(--font-outfit)]">
                         File Optimizer
                     </h4>
-                    <p className="text-xs text-[#B0B0B0]">
+                    <p className="text-xs text-[#9ca3af] leading-relaxed">
                         Smart file explorer with duplicate detection, disk usage treemap, metadata inspector, and auto-organization.
                     </p>
                 </motion.div>

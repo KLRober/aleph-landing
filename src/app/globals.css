@@ -1,22 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 @import "tailwindcss";
 
 :root {
-  --background: #121414;
-  --foreground: #e5e2e1;
-  --primary: #e9e9e9;
-  --primary-fixed: #C0C0C0;
-  --surface: #141313;
-  --surface-container: #1F2020;
-  --surface-container-high: #2a2a2a;
-  --surface-container-highest: #353434;
-  --surface-container-low: #1c1b1b;
-  --surface-container-lowest: #0d0e0f;
-  --surface-bright: #3a3939;
-  --outline-variant: #444748;
-  --on-surface: #e5e2e1;
-  --on-surface-variant: #B0B0B0;
-  --on-primary: #0a0a0a;
+  --background: #0f1115;
+  --foreground: #e2e8f0;
+  --accent: #ffffff;
+  --accent-secondary: #94a3b8;
+  --accent-glow: rgba(255, 255, 255, 0.04);
+  --accent-glow-strong: rgba(255, 255, 255, 0.08);
+  --primary: #f8fafc;
+  --primary-fixed: #cbd5e1;
+  --surface: #14171d;
+  --surface-container: #1b1f27;
+  --surface-container-high: #242933;
+  --surface-container-highest: #2f3542;
+  --surface-container-low: #111317;
+  --surface-container-lowest: #0b0c0e;
+  --surface-bright: #363b47;
+  --outline-variant: #2a2e37;
+  --on-surface: #e2e8f0;
+  --on-surface-variant: #94a3b8;
+  --on-primary: #0f1115;
 }
 
 @theme inline {
@@ -27,60 +30,46 @@
 }
 
 body {
-  background-color: #121414;
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: 'Inter', var(--font-sans), sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   overflow-x: hidden;
 }
 
-/* ── Headings use Space Grotesk ─────────────────── */
+/* ── Headings use Outfit ─────────────────── */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Space Grotesk', var(--font-sans), sans-serif;
+  font-family: var(--font-outfit), var(--font-sans), sans-serif;
 }
 
 /* ══════════════════════════════════════════════════
-   ℵ Hero Widget — Large right-column graphic
+   ℵ Hero Visual — Dashboard mockup area
    ══════════════════════════════════════════════════ */
-.aleph-widget-hero {
+.hero-visual-container {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(135deg, rgba(14,15,17,0.9), rgba(20,22,24,0.9));
+  box-shadow:
+    0 0 60px rgba(255, 255, 255, 0.02),
+    0 25px 50px rgba(0,0,0,0.4);
+  transition: border-color 0.6s ease, box-shadow 0.6s ease;
 }
 
-.aleph-widget-symbol-hero {
-  font-size: 18rem;
-  font-weight: 700;
-  color: rgba(192, 192, 192, 0.22);
-  z-index: 2;
-  position: relative;
-  text-shadow: 0 0 100px rgba(192, 192, 192, 0.08);
-  transition: color 0.8s ease, text-shadow 0.8s ease, transform 0.8s ease;
-  cursor: default;
-  user-select: none;
+.hero-visual-container:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow:
+    0 0 80px rgba(255, 255, 255, 0.04),
+    0 25px 50px rgba(0,0,0,0.5);
 }
 
-.aleph-widget-hero:hover .aleph-widget-symbol-hero {
-  color: rgba(192, 192, 192, 0.4);
-  text-shadow: 0 0 120px rgba(192, 192, 192, 0.15);
-  transform: scale(1.04);
-}
-
-.aleph-widget-glow-hero {
+.hero-visual-container::before {
+  content: '';
   position: absolute;
-  width: 500px;
-  height: 500px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(192, 192, 192, 0.05) 0%, transparent 65%);
+  inset: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(10,11,13,0.8) 100%);
+  z-index: 2;
   pointer-events: none;
-  animation: widget-pulse 5s ease-in-out infinite;
-}
-
-@keyframes widget-pulse {
-  0%, 100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
-  50% { opacity: 0.9; transform: translate(-50%, -50%) scale(1.1); }
 }
 
 /* ── Neural Node (interactive graph) ─────────────── */
@@ -88,8 +77,8 @@ h1, h2, h3, h4, h5, h6 {
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  background: rgba(18, 20, 20, 0.9);
-  border: 1px solid rgba(68, 71, 72, 0.25);
+  background: rgba(14, 15, 17, 0.9);
+  border: 1px solid var(--outline-variant);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -98,7 +87,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .neural-node-icon:hover {
-  background: rgba(26, 27, 27, 0.95);
+  background: rgba(20, 22, 24, 0.95);
 }
 
 /* ══════════════════════════════════════════════════
@@ -112,7 +101,7 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
 }
 
-/* Gradient Orbs */
+/* Gradient Orbs — now with silver/gray tints */
 .scroll-bg-orb {
   position: absolute;
   border-radius: 50%;
@@ -125,7 +114,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 600px;
   top: -10%;
   right: -5%;
-  background: radial-gradient(circle, rgba(192, 192, 192, 0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
 }
 
 .scroll-bg-orb--2 {
@@ -133,7 +122,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 500px;
   top: 40%;
   left: -10%;
-  background: radial-gradient(circle, rgba(160, 160, 180, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(148, 163, 184, 0.02) 0%, transparent 70%);
 }
 
 .scroll-bg-orb--3 {
@@ -141,7 +130,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 400px;
   top: 70%;
   right: 20%;
-  background: radial-gradient(circle, rgba(192, 192, 192, 0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.02) 0%, transparent 70%);
 }
 
 /* Subtle grid overlay */
@@ -149,9 +138,9 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(192, 192, 192, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(192, 192, 192, 0.04) 1px, transparent 1px);
-  background-size: 60px 60px;
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 80px 80px;
   will-change: opacity;
 }
 
@@ -161,7 +150,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   width: 100%;
   height: 1px;
-  background: linear-gradient(90deg, transparent 5%, rgba(192, 192, 192, 0.4) 50%, transparent 95%);
+  background: linear-gradient(90deg, transparent 5%, rgba(255, 255, 255, 0.08) 50%, transparent 95%);
   will-change: transform, opacity;
 }
 
@@ -174,7 +163,7 @@ h1, h2, h3, h4, h5, h6 {
 .scroll-bg-dot {
   position: absolute;
   border-radius: 50%;
-  background: rgba(192, 192, 192, 0.5);
+  background: rgba(255, 255, 255, 0.2);
   animation: float-particle linear infinite;
 }
 
@@ -203,33 +192,107 @@ h1, h2, h3, h4, h5, h6 {
 .scroll-bg-noise {
   position: absolute;
   inset: 0;
-  opacity: 0.025;
+  opacity: 0.02;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 128px 128px;
 }
 
 /* ── Glass Panel ─────────────────────────────────── */
 .glass-panel {
-  background: rgba(31, 32, 32, 0.4);
+  background: rgba(20, 23, 29, 0.6);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
 
 /* ── Neural Line ─────────────────────────────────── */
 .neural-line {
-  background: linear-gradient(90deg, transparent, #C0C0C0, transparent);
+  background: linear-gradient(90deg, transparent, var(--accent-secondary), transparent);
   height: 1px;
   width: 100%;
-  opacity: 0.3;
+  opacity: 0.2;
 }
 
 /* ── Glow Button ─────────────────────────────────── */
 .glow-button {
-  transition: all 0.3s ease;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .glow-button:hover {
-  box-shadow: 0 0 20px rgba(192, 192, 192, 0.3);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.1), 0 0 60px rgba(255, 255, 255, 0.04);
+}
+
+/* ── Accent Button ──────────────────────────────── */
+.accent-button {
+  background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+  color: var(--background);
+  font-weight: 700;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.accent-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent, rgba(255,255,255,0.1), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.accent-button:hover::before {
+  transform: translateX(100%);
+}
+
+/* ── Animated Gradient Border ───────────────────── */
+@keyframes gradient-border-spin {
+  0% { --gradient-angle: 0deg; }
+  100% { --gradient-angle: 360deg; }
+}
+
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.gradient-border {
+  position: relative;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--gradient-angle),
+    transparent 25%,
+    var(--accent) 50%,
+    var(--accent-secondary) 75%,
+    transparent 100%
+  );
+  z-index: -1;
+  animation: gradient-border-spin 4s linear infinite;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.gradient-border:hover::before {
+  opacity: 1;
+}
+
+/* Inner background to cover the gradient */
+.gradient-border::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--surface-container);
+  z-index: -1;
 }
 
 /* ── Spinning Rings ──────────────────────────────── */
@@ -251,16 +314,54 @@ h1, h2, h3, h4, h5, h6 {
   animation: spin-slow-reverse 15s linear infinite;
 }
 
+/* ── Glow Pulse ──────────────────────────────────── */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(255, 255, 255, 0.05); }
+  50% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.15); }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* ── Status Dot Pulse ───────────────────────────── */
+@keyframes status-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.3); }
+}
+
+.status-dot-pulse {
+  animation: status-pulse 2s ease-in-out infinite;
+}
+
+/* ── Reveal animation ───────────────────────────── */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.animate-reveal-up {
+  animation: reveal-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
 /* ── Custom scrollbar ─────────────────────────────── */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #121414; }
+::-webkit-scrollbar-track { background: var(--background); }
 ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.2); }
 
 /* ── Selection colors ─────────────────────────────── */
 ::selection {
-  background-color: #C0C0C0;
-  color: #0a0a0a;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
 }
 
 /* ── Smooth scroll for anchor links ──────────────── */
@@ -271,7 +372,41 @@ html {
 /* ── Section Divider ─────────────────────────────── */
 .section-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(192, 192, 192, 0.12), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
   max-width: 80%;
   margin: 0 auto;
+}
+
+/* ── Card hover glow ─────────────────────────────── */
+.card-hover-glow {
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+}
+
+.card-hover-glow:hover {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.02), inset 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+/* ── Typing cursor animation ─────────────────────── */
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.typing-cursor::after {
+  content: '▌';
+  color: var(--accent-secondary);
+  animation: blink-cursor 1s step-end infinite;
+  margin-left: 2px;
+}
+
+/* ── Reduced motion ──────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

@@ -42,7 +42,7 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
 const stats = [
     { value: 20, suffix: "+", label: "Automation Actions", sublabel: "In the Action Registry", accent: "#ffffff" },
     { value: 9, suffix: "", label: "Condition Types", sublabel: "Regex, size, date & more", accent: "#9ca3af" },
-    { value: 256, suffix: "-bit", label: "AES Encryption", sublabel: "Military-grade security", accent: "#ffffff" },
+    { value: 256, suffix: "-bit", label: "AES Encryption", sublabel: "Backup encryption", accent: "#ffffff" },
     { value: 3, suffix: "", label: "Languages", sublabel: "Español, English, Deutsch", accent: "#9ca3af" },
 ];
 
@@ -65,9 +65,10 @@ export default function StatsSection() {
                             key={stat.label}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
+                            whileHover={{ y: -4, scale: 1.02 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="text-center"
+                            className="text-center p-3 rounded-xl transition-colors hover:bg-white/[0.02]"
                         >
                             <div
                                 className="text-4xl md:text-5xl font-bold mb-2 font-[family-name:var(--font-outfit)]"

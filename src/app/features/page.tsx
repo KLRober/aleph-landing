@@ -44,7 +44,7 @@ const features = [
     {
         icon: "dashboard",
         title: "Real-Time Dashboard",
-        description: "Live metrics panel showing disk storage, RAM usage, system info, active rules, files processed, space saved, Security Health Score, action breakdown, and recent activity feed — all with 30-second cache for performance.",
+        description: "Live metrics panel showing disk storage, RAM usage, system info, running rules, files processed, space saved, Security Health Score, action breakdown, and recent activity feed — all with 30-second cache for performance.",
     },
     {
         icon: "terminal",

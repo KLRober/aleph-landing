@@ -1,20 +1,31 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import { useState } from "react";
 
 export default function Header() {
     const [mobileOpen, setMobileOpen] = useState(false);
+    const { scrollYProgress } = useScroll();
+    const scaleX = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001,
+    });
 
     const navLinks = [
         { label: "Features", href: "#features" },
         { label: "How it Works", href: "#how-it-works" },
         { label: "FAQ", href: "#faq" },
-        { label: "Docs", href: "#docs" },
+        { label: "Docs", href: "/docs" },
     ];
 
     return (
-        <nav className="sticky top-0 w-full z-50 bg-[#0f1115]/60 backdrop-blur-xl border-b border-[#333842]/20">
+        <nav className="sticky top-0 w-full z-50 bg-[#0f1115]/80 backdrop-blur-xl border-b border-[#333842]/20">
+            {/* Scroll progress bar */}
+            <motion.div
+                className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-zinc-500 via-white to-zinc-400 origin-left z-50 pointer-events-none"
+                style={{ scaleX }}
+            />
             <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}

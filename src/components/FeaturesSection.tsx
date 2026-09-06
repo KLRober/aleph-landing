@@ -80,13 +80,11 @@ export default function FeaturesSection() {
                     Core Capabilities
                 </h2>
                 <h3 className="text-4xl md:text-5xl font-bold text-[#e9e9e9] font-[family-name:var(--font-outfit)] mb-6 text-wrap-balance">
-                    Everything you need to{" "}
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-zinc-400">
-                        control your files
-                    </span>
+                    What{"'"}
+                    s included
                 </h3>
                 <p className="text-[#9ca3af] max-w-2xl mx-auto text-lg">
-                    From automated file sorting to PDF processing, image optimization, encrypted backups, and OCR search — all running locally on your machine.
+                    The full toolkit — from automated sorting to encrypted backups. Everything runs on your machine.
                 </p>
             </motion.div>
 

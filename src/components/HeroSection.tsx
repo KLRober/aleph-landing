@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 /* ── Animated terminal-like pipeline visualization ── */
 const PIPELINE_LINES = [
@@ -14,7 +14,7 @@ const PIPELINE_LINES = [
 
 function AnimatedTerminal() {
     return (
-        <div className="w-full rounded-xl border border-[#252830] bg-[#0c0d10] overflow-hidden">
+        <div className="w-full rounded-xl border border-[#252830] bg-[#0c0d10] overflow-hidden shadow-2xl">
             {/* Window bar */}
             <div className="flex items-center gap-2 px-4 py-3 border-b border-[#1a1c22]">
                 <div className="flex gap-1.5">
@@ -66,6 +66,10 @@ function AnimatedTerminal() {
 }
 
 export default function HeroSection() {
+    const { scrollY } = useScroll();
+    const terminalY = useTransform(scrollY, [0, 600], [0, 35]);
+    const terminalScale = useTransform(scrollY, [0, 600], [1, 0.98]);
+
     return (
         <>
             <section className="relative min-h-[90vh] flex items-center px-8 md:px-16 max-w-screen-2xl mx-auto pt-20 pb-12">
@@ -110,8 +114,7 @@ export default function HeroSection() {
                             transition={{ duration: 0.6, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
                             className="text-lg md:text-xl text-[#9ca3af] max-w-xl mb-10 leading-relaxed"
                         >
-                            An open-source automation engine that turns your digital chaos into automatic order.
-                            100% local, 100% private — your files never leave your machine.
+                            Open-source file automation for Windows. Set rules, ALEPH handles the rest — offline, private, no cloud.
                         </motion.p>
 
                         {/* CTAs */}
@@ -165,6 +168,7 @@ export default function HeroSection() {
                     <motion.div
                         initial={{ opacity: 0, y: 24 }}
                         animate={{ opacity: 1, y: 0 }}
+                        style={{ y: terminalY, scale: terminalScale }}
                         transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
                     >
                         <AnimatedTerminal />

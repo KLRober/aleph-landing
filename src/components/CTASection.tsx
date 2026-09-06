@@ -28,10 +28,10 @@ export default function CTASection() {
                     </div>
 
                     <h2 className="text-4xl md:text-6xl font-bold text-[#e9e9e9] mb-6 font-[family-name:var(--font-outfit)]">
-                        Ready to take control?
+                        Try it
                     </h2>
                     <p className="text-lg text-[#9ca3af] max-w-2xl mx-auto mb-10">
-                        Stop managing files manually. Let ALEPH compress your PDFs, organize your downloads, strip your metadata, and back up your work — all on autopilot, all on your machine.
+                        Download, set a couple of rules, and forget about it. Free, open source, runs on your machine.
                     </p>
 
                     <div className="flex flex-wrap justify-center gap-4">

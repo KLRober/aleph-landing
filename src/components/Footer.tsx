@@ -59,7 +59,7 @@ export default function Footer() {
                         <span className="text-[10px] font-mono text-zinc-500 tracking-wider ml-2">V1</span>
                     </div>
                     <p className="text-[#666] text-xs leading-relaxed max-w-xs mb-6">
-                        The high-performance automation engine for local-first file control. Built for privacy, speed, and precision.
+                        File automation for Windows. Local, private, open source.
                     </p>
 
                     {/* Newsletter mini form */}
@@ -127,9 +127,9 @@ export default function Footer() {
                     </a>
                 </div>
 
-                <div className="flex items-center gap-2 font-mono text-[10px] text-[#666] uppercase tracking-widest">
-                    <span className="w-2 h-2 rounded-full bg-white status-dot-pulse" />
-                    System Operational
+                <div className="flex items-center gap-2 font-mono text-[10px] text-[#777] uppercase tracking-widest">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400/80 status-dot-pulse" />
+                    Running 100% locally
                 </div>
             </div>
         </motion.footer>

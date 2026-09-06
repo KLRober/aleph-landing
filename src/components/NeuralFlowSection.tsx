@@ -14,13 +14,13 @@ const STAGES = [
         icon: "sensors",
         label: "Detect",
         tagline: "Watch",
-        title: "Detection Layer",
-        description: "File system events are captured instantly through recursive watchers with sub-millisecond response.",
+        title: "Folder monitoring",
+        description: "File events are caught instantly through native folder watchers with sub-millisecond response.",
         features: [
-            "Recursive directory watching",
+            "Recursive folder watching",
             "Create, modify, delete & rename events",
-            "Debounced event bus for deduplication",
-            "Zero-polling, event-driven architecture",
+            "Debounced event queue to prevent duplicates",
+            "Zero polling, completely event-driven",
         ],
         stat: { value: "<1ms", label: "Event latency" },
     },
@@ -29,12 +29,12 @@ const STAGES = [
         icon: "account_tree",
         label: "Analyze",
         tagline: "Match",
-        title: "Analysis Layer",
-        description: "Events are evaluated against your ruleset using regex matching, metadata inspection, and conditional logic.",
+        title: "Rule matching",
+        description: "Events are matched against your rules using pattern matching, file metadata, and condition chains.",
         features: [
             "Regex & glob pattern matching",
             "Size, date & extension filters",
-            "Priority-based rule ordering",
+            "Custom rule priorities",
             "Chained condition evaluation",
         ],
         stat: { value: "9", label: "Condition types" },
@@ -44,12 +44,12 @@ const STAGES = [
         icon: "hub",
         label: "Execute",
         tagline: "Act",
-        title: "Execution Layer",
-        description: "Matched rules trigger actions through a parallel dispatcher with built-in conflict resolution and rollback.",
+        title: "Automated execution",
+        description: "Matched rules trigger actions through a safe dispatcher with conflict resolution and rollback support.",
         features: [
             "Move, copy, rename & compress",
             "Parallel action execution",
-            "Conflict resolution with safe paths",
+            "Conflict resolution with safe auto-rename",
             "Rollback support on failure",
         ],
         stat: { value: "20+", label: "Actions available" },
@@ -59,11 +59,11 @@ const STAGES = [
         icon: "verified",
         label: "Verify",
         tagline: "Log",
-        title: "Verification Layer",
-        description: "Every action is verified for integrity and permanently logged for audit, transparency and rollback.",
+        title: "Integrity & history",
+        description: "Every action is checked for file integrity and saved in a private local history log.",
         features: [
-            "SHA-256 hash verification",
-            "Structured JSON audit logs",
+            "SHA-256 hash checks",
+            "Clean local audit log",
             "Desktop notifications",
             "Full execution history",
         ],
@@ -88,10 +88,10 @@ export default function NeuralFlowSection() {
                     Architecture
                 </h2>
                 <h3 className="text-4xl md:text-5xl font-bold text-[#e9e9e9] font-[family-name:var(--font-outfit)] mb-4">
-                    How Data Flows
+                    Under the hood
                 </h3>
                 <p className="text-[#9ca3af] max-w-xl text-lg leading-relaxed">
-                    A four-stage pipeline that turns raw file system events into verified, automated actions.
+                    Every file event passes through four stages before anything happens.
                 </p>
             </motion.div>
 

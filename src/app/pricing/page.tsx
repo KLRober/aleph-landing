@@ -12,7 +12,7 @@ const plans = [
         period: "forever",
         description: "Perfect for personal use and getting started with file automation.",
         features: [
-            "Up to 5 active rules",
+            "Up to 5 automated rules",
             "Single directory monitoring",
             "Basic file operations",
             "Desktop notifications",
@@ -27,7 +27,7 @@ const plans = [
         period: "/month",
         description: "For power users who need advanced automation capabilities.",
         features: [
-            "Unlimited active rules",
+            "Unlimited automated rules",
             "Multi-directory monitoring",
             "Advanced conditions & logic",
             "Scheduled automations",

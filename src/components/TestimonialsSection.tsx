@@ -57,7 +57,7 @@ export default function TestimonialsSection() {
                     Testimonials
                 </h2>
                 <h3 className="text-4xl md:text-5xl font-bold text-[#e9e9e9] font-[family-name:var(--font-outfit)]">
-                    Trusted by power users
+                    What early users say
                 </h3>
             </motion.div>
 

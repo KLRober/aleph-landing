@@ -44,31 +44,39 @@ export default function HowItWorksSection() {
                     Getting Started
                 </h2>
                 <h3 className="text-4xl md:text-5xl font-bold text-[#e9e9e9] font-[family-name:var(--font-outfit)]">
-                    Up and running in minutes
+                    Three steps, that{"'"}s it
                 </h3>
             </motion.div>
 
             {/* Steps */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
                 {/* Connection line */}
-                <div className="hidden md:block absolute top-16 left-[20%] right-[20%] h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+                <motion.div
+                    initial={{ scaleX: 0, opacity: 0 }}
+                    whileInView={{ scaleX: 1, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                    style={{ originX: 0 }}
+                    className="hidden md:block absolute top-16 left-[20%] right-[20%] h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                />
 
                 {steps.map((step, index) => (
                     <motion.div
                         key={step.number}
-                        initial={{ opacity: 0, y: 30 }}
+                        initial={{ opacity: 0, y: 32 }}
                         whileInView={{ opacity: 1, y: 0 }}
+                        whileHover={{ y: -6 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: index * 0.15 }}
-                        className="relative flex flex-col items-center text-center"
+                        transition={{ duration: 0.6, delay: index * 0.15, ease: [0.16, 1, 0.3, 1] }}
+                        className="relative flex flex-col items-center text-center group cursor-default"
                     >
                         {/* Step circle */}
                         <div
-                            className="w-32 h-32 rounded-full border bg-[#0d0e10] flex flex-col items-center justify-center mb-8 relative"
+                            className="w-32 h-32 rounded-full border bg-[#0d0e10] flex flex-col items-center justify-center mb-8 relative transition-transform duration-300 group-hover:scale-105 group-hover:border-white/30"
                             style={{ borderColor: `${step.accent}20` }}
                         >
                             <span
-                                className="material-symbols-outlined text-3xl mb-1"
+                                className="material-symbols-outlined text-3xl mb-1 transition-transform duration-300 group-hover:scale-110"
                                 style={{ color: step.accent }}
                             >
                                 {step.icon}
@@ -78,7 +86,7 @@ export default function HowItWorksSection() {
                             </span>
                             {/* Subtle glow ring */}
                             <div
-                                className="absolute inset-0 rounded-full opacity-20"
+                                className="absolute inset-0 rounded-full opacity-20 transition-opacity duration-300 group-hover:opacity-40"
                                 style={{
                                     boxShadow: `0 0 30px ${step.accent}30`,
                                 }}

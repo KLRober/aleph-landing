@@ -14,19 +14,19 @@ interface SubpageLayoutProps {
 
 export default function SubpageLayout({ title, subtitle, icon, children, lastUpdated }: SubpageLayoutProps) {
     return (
-        <main className="flex min-h-screen flex-col bg-[#121414] text-[#e5e2e1] relative">
+        <main className="flex min-h-screen flex-col bg-[#0f1115] text-[#e8e6e3] relative">
             {/* Watermark */}
             <div className="aleph-watermark select-none" aria-hidden="true">ℵ</div>
 
             {/* Minimal Header */}
             <nav className="sticky top-0 w-full z-50 bg-zinc-950/40 backdrop-blur-xl bg-gradient-to-b from-zinc-800/10 to-transparent">
                 <div className="flex justify-between items-center px-8 py-4 max-w-screen-2xl mx-auto">
-                    <Link href="/" className="text-xl font-bold tracking-tighter text-zinc-50 uppercase font-[family-name:var(--font-space-grotesk)]">
+                    <Link href="/" className="text-xl font-bold tracking-tighter text-zinc-50 uppercase font-[family-name:var(--font-outfit)]">
                         ALEPH V1
                     </Link>
                     <Link
                         href="/"
-                        className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors text-sm font-[family-name:var(--font-space-grotesk)]"
+                        className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors text-sm font-[family-name:var(--font-outfit)]"
                     >
                         <span className="material-symbols-outlined text-base">arrow_back</span>
                         Back to Home
@@ -57,7 +57,7 @@ export default function SubpageLayout({ title, subtitle, icon, children, lastUpd
                             </span>
                         )}
                     </div>
-                    <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-zinc-50 font-[family-name:var(--font-space-grotesk)] mb-4">
+                    <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-zinc-50 font-[family-name:var(--font-outfit)] mb-4">
                         {title}
                     </h1>
                     <p className="text-lg text-zinc-400 max-w-2xl leading-relaxed">

@@ -304,16 +304,23 @@ export default function BentoGrid() {
                                 <button
                                     key={key}
                                     onClick={() => setSelectedPreset(key)}
-                                    className={`px-4 py-2 rounded-xl font-[family-name:var(--font-outfit)] text-sm font-medium flex items-center gap-2 transition-all duration-200 ${
+                                    className={`relative px-4 py-2 rounded-xl font-[family-name:var(--font-outfit)] text-sm font-medium flex items-center gap-2 transition-colors duration-200 cursor-pointer ${
                                         isSelected
-                                            ? "bg-white text-zinc-950 shadow-md font-semibold"
-                                            : "bg-[#181b22] text-[#9ca3af] hover:text-white hover:bg-[#20242e] border border-[#333842]/30"
+                                            ? "text-zinc-950 font-semibold"
+                                            : "text-[#9ca3af] hover:text-white bg-[#181b22]/70 hover:bg-[#20242e] border border-[#333842]/30"
                                     }`}
                                 >
-                                    <span className="material-symbols-outlined text-base">
+                                    {isSelected && (
+                                        <motion.div
+                                            layoutId="activePresetPill"
+                                            transition={{ type: "spring", stiffness: 450, damping: 32 }}
+                                            className="absolute inset-0 bg-white rounded-xl shadow-lg z-0"
+                                        />
+                                    )}
+                                    <span className="material-symbols-outlined text-base relative z-10">
                                         {p.icon}
                                     </span>
-                                    {p.title}
+                                    <span className="relative z-10">{p.title}</span>
                                 </button>
                             );
                         })}
@@ -327,10 +334,11 @@ export default function BentoGrid() {
 
                         <motion.button
                             onClick={runSimulation}
-                            whileHover={{ scale: 1.03 }}
+                            whileHover={{ scale: 1.04, y: -1 }}
                             whileTap={{ scale: 0.97 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 20 }}
                             disabled={isSimulating}
-                            className={`px-5 py-2.5 rounded-xl font-bold tracking-tight text-sm flex items-center gap-2 transition-all shadow-lg ${
+                            className={`px-5 py-2.5 rounded-xl font-bold tracking-tight text-sm flex items-center gap-2 transition-all shadow-xl cursor-pointer ${
                                 isSimulating
                                     ? "bg-zinc-700 text-zinc-300 cursor-not-allowed"
                                     : "accent-button text-zinc-950 glow-button"
@@ -339,7 +347,7 @@ export default function BentoGrid() {
                             <span className={`material-symbols-outlined text-lg ${isSimulating ? "animate-spin" : ""}`}>
                                 {isSimulating ? "progress_activity" : "play_arrow"}
                             </span>
-                            {isSimulating ? "Simulating…" : "Run Simulation"}
+                            {isSimulating ? "Simulating Pipeline…" : "Run Simulation"}
                         </motion.button>
                     </div>
                 </div>
@@ -364,12 +372,12 @@ export default function BentoGrid() {
                     </div>
 
                     <div className="flex items-center gap-2">
-                        <span className="w-2 h-2 rounded-full bg-emerald-400 status-dot-pulse" />
+                        <span className={`w-2 h-2 rounded-full ${isSimulating ? "bg-amber-400 animate-ping" : activeStep === 4 ? "bg-emerald-400 status-dot-pulse" : "bg-zinc-500"}`} />
                         <span className="text-xs font-mono text-[#888]">
                             {isSimulating
                                 ? `Processing step ${Math.min(activeStep + 1, 4)} of 4…`
                                 : activeStep === 4
-                                ? "Pipeline executed successfully"
+                                ? "Pipeline executed successfully in benchmark"
                                 : "Ready for event"}
                         </span>
                     </div>
@@ -397,9 +405,19 @@ export default function BentoGrid() {
                                     x2={`${Math.min((activeStep / 3) * 100, 100)}%`}
                                     y2="50%"
                                     stroke="url(#wireGradient)"
-                                    strokeWidth="3"
+                                    strokeWidth="3.5"
                                     strokeLinecap="round"
                                     className="transition-all duration-500 ease-out"
+                                />
+                            )}
+                            {/* Traveling energy photon during simulation */}
+                            {isSimulating && (
+                                <circle
+                                    cx={`${Math.min((activeStep / 3) * 100, 100)}%`}
+                                    cy="50%"
+                                    r="6"
+                                    fill="#ffffff"
+                                    className="transition-all duration-500 ease-out filter drop-shadow-[0_0_8px_#38bdf8]"
                                 />
                             )}
                             <defs>
@@ -423,15 +441,16 @@ export default function BentoGrid() {
                                 <motion.div
                                     key={step.id}
                                     onClick={() => setSelectedNodeIndex(isSelected ? null : index)}
-                                    whileHover={{ y: -4 }}
-                                    className={`rounded-2xl p-5 border transition-all duration-300 cursor-pointer relative bg-[#12141a]/90 backdrop-blur-md ${
+                                    whileHover={{ y: -4, scale: 1.01 }}
+                                    transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                                    className={`rounded-2xl p-5 border transition-all duration-300 cursor-pointer relative bg-[#12141a]/95 backdrop-blur-md ${
                                         isCurrent
-                                            ? "border-white/50 shadow-[0_0_25px_rgba(255,255,255,0.15)] ring-1 ring-white/30"
+                                            ? "border-white/60 shadow-[0_0_30px_rgba(255,255,255,0.2)] ring-1 ring-white/40 scale-[1.02]"
                                             : isDone
-                                            ? "border-emerald-500/40 shadow-[0_0_15px_rgba(16,185,129,0.1)]"
+                                            ? "border-emerald-500/40 shadow-[0_0_18px_rgba(16,185,129,0.12)]"
                                             : isSelected
                                             ? "border-zinc-400 bg-[#171922]"
-                                            : "border-[#333842]/30 hover:border-[#333842]/70"
+                                            : "border-[#333842]/40 hover:border-[#333842]/80"
                                     }`}
                                 >
                                     {/* Type badge */}
@@ -450,8 +469,11 @@ export default function BentoGrid() {
                                         {/* Status indicator */}
                                         <div className="flex items-center gap-1.5">
                                             {isCurrent ? (
-                                                <span className="flex items-center gap-1 text-[10px] font-mono text-white animate-pulse">
-                                                    <span className="w-1.5 h-1.5 rounded-full bg-white" />
+                                                <span className="flex items-center gap-1.5 text-[10px] font-mono text-white">
+                                                    <span className="relative flex h-2 w-2">
+                                                        <span className="animate-radar-ring absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                                                        <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+                                                    </span>
                                                     Running…
                                                 </span>
                                             ) : isDone ? (
@@ -533,32 +555,59 @@ export default function BentoGrid() {
                 {/* ── Real-Time Console & Result Toast ── */}
                 <div className="mt-8 pt-6 border-t border-[#333842]/20 grid grid-cols-1 lg:grid-cols-3 gap-6 items-center relative z-10">
                     {/* Live log stream */}
-                    <div className="lg:col-span-2 font-mono text-xs text-[#888] space-y-1 bg-[#090a0d] p-4 rounded-xl border border-[#333842]/30 min-h-[85px] flex flex-col justify-center">
+                    <div className="lg:col-span-2 font-mono text-xs text-[#888] space-y-1.5 bg-[#090a0d] p-4 rounded-xl border border-[#333842]/30 min-h-[90px] flex flex-col justify-center">
                         {activeStep === -1 ? (
-                            <div className="flex items-center gap-2 text-[#555]">
-                                <span className="material-symbols-outlined text-sm">terminal</span>
+                            <div className="flex items-center gap-2 text-[#666]">
+                                <span className="material-symbols-outlined text-sm text-zinc-500">terminal</span>
                                 <span>Pipeline idle. Click &apos;Run Simulation&apos; or pick a preset to watch events flow.</span>
                             </div>
                         ) : (
-                            preset.logs.slice(0, Math.max(activeStep, 1)).map((log, i) => (
-                                <motion.div
-                                    key={i}
-                                    initial={{ opacity: 0, x: -6 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    transition={{ duration: 0.2 }}
-                                    className="text-[#aaa] flex items-center gap-2"
-                                >
-                                    <span className="text-emerald-400/80">❯</span>
-                                    <span>{log}</span>
-                                </motion.div>
-                            ))
+                            preset.logs.slice(0, Math.max(activeStep, 1)).map((log, i) => {
+                                const isDoneLog = log.includes("[DONE]");
+                                const isExecLog = log.includes("[EXEC]");
+                                const isVerifyLog = log.includes("[VERIFY]");
+                                const isDetectLog = log.includes("[DETECT]") || log.includes("[TIMER]");
+
+                                return (
+                                    <motion.div
+                                        key={i}
+                                        initial={{ opacity: 0, x: -8 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ duration: 0.25, ease: "easeOut" }}
+                                        className="text-[#cbd5e1] flex items-center gap-2"
+                                    >
+                                        <span className={`text-[10px] px-1.5 py-0.5 rounded border font-mono shrink-0 ${
+                                            isDoneLog ? "text-emerald-400 bg-emerald-500/10 border-emerald-500/20" :
+                                            isExecLog ? "text-purple-300 bg-purple-500/10 border-purple-500/20" :
+                                            isVerifyLog ? "text-sky-300 bg-sky-500/10 border-sky-500/20" :
+                                            isDetectLog ? "text-amber-300 bg-amber-500/10 border-amber-500/20" :
+                                            "text-zinc-400 bg-white/5 border-white/10"
+                                        }`}>
+                                            {log.split(" ")[1]}
+                                        </span>
+                                        <span className="truncate">{log.split(" ").slice(2).join(" ")}</span>
+                                    </motion.div>
+                                );
+                            })
                         )}
                     </div>
 
                     {/* Result Summary Pill */}
-                    <div className="lg:col-span-1 flex flex-col justify-center bg-white/[0.02] p-4 rounded-xl border border-white/10">
-                        <div className="text-[11px] font-mono text-[#777] uppercase tracking-wider mb-1">
-                            Execution Benchmark
+                    <div
+                        className={`lg:col-span-1 flex flex-col justify-center p-4 rounded-xl border transition-all duration-500 ${
+                            activeStep === 4
+                                ? "bg-emerald-500/[0.08] border-emerald-500/40 shadow-[0_0_25px_rgba(16,185,129,0.15)] ring-1 ring-emerald-500/30"
+                                : "bg-white/[0.02] border-white/10"
+                        }`}
+                    >
+                        <div className="text-[11px] font-mono text-[#777] uppercase tracking-wider mb-1 flex items-center justify-between">
+                            <span>Execution Benchmark</span>
+                            {activeStep === 4 && (
+                                <span className="text-[10px] text-emerald-400 font-bold flex items-center gap-1">
+                                    <span className="material-symbols-outlined text-xs">check_circle</span>
+                                    SUCCESS
+                                </span>
+                            )}
                         </div>
                         <div className="text-xl font-bold text-white font-[family-name:var(--font-outfit)] flex items-center gap-2">
                             <span>{preset.result.duration}</span>

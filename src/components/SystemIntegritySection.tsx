@@ -32,10 +32,13 @@ function SystemStatusPanel() {
         <motion.div
             variants={cardVariants}
             whileHover={{ y: -4 }}
-            className="glass-panel rounded-2xl p-8 border border-[#333842]/30 lg:col-span-1 transition-all duration-300"
+            className="glass-panel rounded-2xl p-8 border border-[#333842]/30 lg:col-span-1 transition-all duration-300 shadow-xl"
         >
             <h4 className="font-bold text-[#e9e9e9] mb-6 flex items-center gap-3 font-[family-name:var(--font-outfit)]">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400/90 status-dot-pulse" />
+                <span className="relative flex h-2.5 w-2.5">
+                    <span className="animate-radar-ring absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400" />
+                </span>
                 Live Overview
             </h4>
 
@@ -47,17 +50,20 @@ function SystemStatusPanel() {
                     </div>
                 ))}
 
-                {/* Storage Reclaimed Progress Bar */}
+                {/* Storage Reclaimed Progress Bar with Shimmer */}
                 <div className="pt-4">
-                    <div className="w-full bg-[#08090b] h-2 rounded-full overflow-hidden border border-white/5">
+                    <div className="w-full bg-[#08090b] h-2.5 rounded-full overflow-hidden border border-white/5 relative">
                         <motion.div
                             initial={{ width: 0 }}
                             whileInView={{ width: "64%" }}
                             viewport={{ once: true }}
                             transition={{ duration: 1.4, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                            className="h-full rounded-full"
-                            style={{ background: "linear-gradient(90deg, var(--accent), var(--accent-secondary))" }}
-                        />
+                            className="h-full rounded-full relative overflow-hidden"
+                            style={{ background: "linear-gradient(90deg, #94a3b8, #ffffff)" }}
+                        >
+                            {/* Animated progress bar shimmer */}
+                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent animate-bar-shimmer pointer-events-none" />
+                        </motion.div>
                     </div>
                     <div className="flex justify-between mt-2.5">
                         <span className="text-[11px] font-mono text-[#9ca3af]">Storage reclaimed</span>

@@ -52,18 +52,45 @@ export default function ScrollBackground() {
     return (
         <div className="scroll-bg-container" aria-hidden="true">
 
-            {/* ── Gradient Orbs ──────────────────── */}
+            {/* ── Gradient Orbs (Scroll Parallax + Ambient Drift) ──────────────────── */}
             <motion.div
                 className="scroll-bg-orb scroll-bg-orb--1"
                 style={{ y: orbY1, opacity: orbOpacity1, scale: orbScale }}
+                animate={{
+                    x: [0, 20, -15, 0],
+                    rotate: [0, 5, -5, 0],
+                }}
+                transition={{
+                    duration: 22,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                }}
             />
             <motion.div
                 className="scroll-bg-orb scroll-bg-orb--2"
                 style={{ y: orbY2, opacity: orbOpacity2 }}
+                animate={{
+                    x: [0, -25, 15, 0],
+                    scale: [1, 1.08, 0.95, 1],
+                }}
+                transition={{
+                    duration: 26,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                }}
             />
             <motion.div
                 className="scroll-bg-orb scroll-bg-orb--3"
                 style={{ y: orbY3, opacity: orbOpacity1 }}
+                animate={{
+                    x: [0, 18, -12, 0],
+                    y: [0, -15, 10, 0],
+                }}
+                transition={{
+                    duration: 20,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                }}
             />
 
             {/* ── Subtle Grid ──────────────────── */}

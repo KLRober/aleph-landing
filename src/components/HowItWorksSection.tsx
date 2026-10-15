@@ -50,15 +50,11 @@ export default function HowItWorksSection() {
 
             {/* Steps */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-                {/* Connection line */}
-                <motion.div
-                    initial={{ scaleX: 0, opacity: 0 }}
-                    whileInView={{ scaleX: 1, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                    style={{ originX: 0 }}
-                    className="hidden md:block absolute top-16 left-[20%] right-[20%] h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                />
+                {/* Continuous Traveling Energy Beam */}
+                <div className="hidden md:block absolute top-16 left-[18%] right-[18%] h-0.5 overflow-hidden z-0">
+                    <div className="absolute inset-0 bg-white/10" />
+                    <div className="absolute inset-y-0 w-1/3 bg-gradient-to-r from-transparent via-white/70 to-transparent animate-beam-slide" />
+                </div>
 
                 {steps.map((step, index) => (
                     <motion.div
@@ -68,32 +64,38 @@ export default function HowItWorksSection() {
                         whileHover={{ y: -6 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: index * 0.15, ease: [0.16, 1, 0.3, 1] }}
-                        className="relative flex flex-col items-center text-center group cursor-default"
+                        className="relative flex flex-col items-center text-center group cursor-default z-10"
                     >
-                        {/* Step circle */}
-                        <div
-                            className="w-32 h-32 rounded-full border bg-[#0d0e10] flex flex-col items-center justify-center mb-8 relative transition-transform duration-300 group-hover:scale-105 group-hover:border-white/30"
-                            style={{ borderColor: `${step.accent}20` }}
-                        >
-                            <span
-                                className="material-symbols-outlined text-3xl mb-1 transition-transform duration-300 group-hover:scale-110"
-                                style={{ color: step.accent }}
-                            >
-                                {step.icon}
-                            </span>
-                            <span className="font-mono text-[10px] tracking-widest text-[#9ca3af]">
-                                STEP {step.number}
-                            </span>
-                            {/* Subtle glow ring */}
+                        {/* Step circle container */}
+                        <div className="relative mb-8">
+                            {/* Subtle continuous radar pulse */}
+                            <span className="absolute -inset-2 rounded-full border border-white/5 opacity-50 animate-pulse-soft" />
+
                             <div
-                                className="absolute inset-0 rounded-full opacity-20 transition-opacity duration-300 group-hover:opacity-40"
-                                style={{
-                                    boxShadow: `0 0 30px ${step.accent}30`,
-                                }}
-                            />
+                                className="w-32 h-32 rounded-full border bg-[#0d0e10]/95 backdrop-blur-md flex flex-col items-center justify-center relative transition-all duration-300 group-hover:scale-105 group-hover:border-white/40 shadow-xl"
+                                style={{ borderColor: `${step.accent}20` }}
+                            >
+                                <span
+                                    className="material-symbols-outlined text-3xl mb-1 transition-transform duration-300 group-hover:scale-115"
+                                    style={{ color: step.accent }}
+                                >
+                                    {step.icon}
+                                </span>
+                                <span className="font-mono text-[10px] tracking-widest text-[#9ca3af] font-semibold">
+                                    STEP {step.number}
+                                </span>
+
+                                {/* Glow ring on hover */}
+                                <div
+                                    className="absolute inset-0 rounded-full opacity-20 transition-opacity duration-300 group-hover:opacity-60"
+                                    style={{
+                                        boxShadow: `0 0 35px ${step.accent}35`,
+                                    }}
+                                />
+                            </div>
                         </div>
 
-                        <h4 className="text-xl font-bold text-[#e9e9e9] mb-3 font-[family-name:var(--font-outfit)]">
+                        <h4 className="text-xl font-bold text-[#e9e9e9] mb-3 font-[family-name:var(--font-outfit)] group-hover:text-white transition-colors">
                             {step.title}
                         </h4>
                         <p className="text-sm text-[#9ca3af] leading-relaxed max-w-xs">

@@ -90,15 +90,16 @@ export default function PricingSection() {
                     <motion.div
                         key={plan.name}
                         variants={cardVariants}
-                        whileHover={{ y: -4 }}
-                        className={`rounded-2xl p-8 border flex flex-col transition-all ${
+                        whileHover={{ y: -6, scale: 1.015 }}
+                        transition={{ type: "spring", stiffness: 350, damping: 25 }}
+                        className={`rounded-2xl p-8 border flex flex-col transition-all duration-300 shadow-xl ${
                             plan.highlighted
-                                ? "bg-gradient-to-b from-white/5 to-[#1b1f27]/80 border-white/20 relative"
-                                : "glass-panel border-[#333842]/30 card-hover-glow"
+                                ? "bg-gradient-to-b from-white/10 to-[#1b1f27]/90 border-white/30 relative shadow-[0_0_40px_rgba(255,255,255,0.06)]"
+                                : "glass-panel border-[#333842]/30 card-hover-glow hover:border-white/20"
                         }`}
                     >
                         {plan.highlighted && (
-                            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-[#0f1115] px-4 py-1 rounded-full text-xs font-bold font-mono tracking-wider">
+                            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-[#0f1115] px-4 py-1 rounded-full text-xs font-bold font-mono tracking-wider shadow-md animate-pulse-soft">
                                 MOST POPULAR
                             </div>
                         )}
@@ -134,12 +135,13 @@ export default function PricingSection() {
 
                         {/* CTA */}
                         <motion.button
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
-                            className={`w-full py-3 rounded-xl font-bold text-sm tracking-tight transition-all ${
+                            whileHover={{ scale: 1.03, y: -1 }}
+                            whileTap={{ scale: 0.97 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                            className={`w-full py-3.5 rounded-xl font-bold text-sm tracking-tight transition-all cursor-pointer shadow-lg ${
                                 plan.highlighted
-                                    ? "accent-button"
-                                    : "bg-[#1c1e22] border border-[#333842]/40 text-[#e9e9e9] hover:bg-[#252830]"
+                                    ? "accent-button glow-button text-[#0f1115]"
+                                    : "bg-[#1c1e22] border border-[#333842]/50 text-[#e9e9e9] hover:bg-[#252830] hover:border-zinc-500/50"
                             }`}
                         >
                             {plan.cta}

@@ -100,8 +100,9 @@ export default function FeaturesSection() {
                     <motion.div
                         key={feature.title}
                         variants={cardVariants}
-                        whileHover={{ y: -4 }}
-                        className="glass-panel rounded-2xl p-8 border border-[#333842]/30 card-hover-glow group"
+                        whileHover={{ y: -6, scale: 1.015 }}
+                        transition={{ type: "spring", stiffness: 350, damping: 25 }}
+                        className="glass-panel rounded-2xl p-8 border border-[#333842]/30 card-hover-glow group transition-all duration-300 hover:border-white/20"
                     >
                         <div
                             className="w-12 h-12 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"

@@ -65,18 +65,18 @@ export default function StatsSection() {
                             key={stat.label}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            whileHover={{ y: -4, scale: 1.02 }}
+                            whileHover={{ y: -6, scale: 1.03 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="text-center p-3 rounded-xl transition-colors hover:bg-white/[0.02]"
+                            transition={{ type: "spring", stiffness: 400, damping: 25, delay: index * 0.08 }}
+                            className="text-center p-4 rounded-xl transition-all duration-300 hover:bg-white/[0.04] border border-transparent hover:border-white/10 group cursor-default"
                         >
                             <div
-                                className="text-4xl md:text-5xl font-bold mb-2 font-[family-name:var(--font-outfit)]"
+                                className="text-4xl md:text-5xl font-bold mb-2 font-[family-name:var(--font-outfit)] group-hover:scale-105 transition-transform duration-300"
                                 style={{ color: stat.accent }}
                             >
                                 <AnimatedCounter target={stat.value} suffix={stat.suffix} />
                             </div>
-                            <div className="text-sm text-[#e9e9e9] font-medium mb-1">
+                            <div className="text-sm text-[#e9e9e9] font-medium mb-1 group-hover:text-white transition-colors">
                                 {stat.label}
                             </div>
                             <div className="text-xs text-[#9ca3af] font-mono">
